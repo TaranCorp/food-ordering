@@ -12,10 +12,9 @@ import org.springframework.validation.annotation.Validated;
 @Slf4j
 @Validated
 @Service
-class OrderApplicationServiceImpl implements OrderApplicationService {
+public class OrderApplicationServiceImpl implements OrderApplicationService {
 
     private final OrderCreateCommandHandler orderCreateCommandHandler;
-
     private final OrderTrackCommandHandler orderTrackCommandHandler;
 
     OrderApplicationServiceImpl(OrderCreateCommandHandler orderCreateCommandHandler, OrderTrackCommandHandler orderTrackCommandHandler) {

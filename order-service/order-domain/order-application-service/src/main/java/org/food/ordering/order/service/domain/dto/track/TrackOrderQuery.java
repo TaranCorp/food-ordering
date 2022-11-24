@@ -8,8 +8,12 @@ public class TrackOrderQuery {
     @NotNull
     private final UUID orderTrackingId;
 
-    public TrackOrderQuery(UUID orderTrackingId) {
+    private TrackOrderQuery(UUID orderTrackingId) {
         this.orderTrackingId = orderTrackingId;
+    }
+
+    public static TrackOrderQuery createTrackerBy(UUID trackingId) {
+        return new TrackOrderQuery(trackingId);
     }
 
     public UUID getOrderTrackingId() {

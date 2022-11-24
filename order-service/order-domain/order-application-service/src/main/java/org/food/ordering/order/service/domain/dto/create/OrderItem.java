@@ -25,6 +25,17 @@ public class OrderItem {
         this.subTotal = subTotal;
     }
 
+    private OrderItem(Builder builder) {
+        productId = builder.productId;
+        quantity = builder.quantity;
+        price = builder.price;
+        subTotal = builder.subTotal;
+    }
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
     public UUID getProductId() {
         return productId;
     }
@@ -39,5 +50,39 @@ public class OrderItem {
 
     public BigDecimal getSubTotal() {
         return subTotal;
+    }
+
+    public static final class Builder {
+        private @NotNull UUID productId;
+        private @NotNull Integer quantity;
+        private @NotNull BigDecimal price;
+        private @NotNull BigDecimal subTotal;
+
+        private Builder() {
+        }
+
+        public Builder productId(@NotNull UUID val) {
+            productId = val;
+            return this;
+        }
+
+        public Builder quantity(@NotNull Integer val) {
+            quantity = val;
+            return this;
+        }
+
+        public Builder price(@NotNull BigDecimal val) {
+            price = val;
+            return this;
+        }
+
+        public Builder subTotal(@NotNull BigDecimal val) {
+            subTotal = val;
+            return this;
+        }
+
+        public OrderItem build() {
+            return new OrderItem(this);
+        }
     }
 }

@@ -9,9 +9,11 @@ import org.food.ordering.domain.valueobject.Money;
 import org.food.ordering.domain.valueobject.ProductId;
 import org.food.ordering.domain.valueobject.RestaurantId;
 import org.food.ordering.domain.valueobject.StreetAddress;
+import org.food.ordering.domain.valueobject.TrackingId;
 import org.food.ordering.order.service.domain.dto.create.CreateOrderCommand;
 import org.food.ordering.order.service.domain.dto.create.CreateOrderResponse;
 import org.food.ordering.order.service.domain.dto.create.OrderAddress;
+import org.food.ordering.order.service.domain.dto.track.TrackOrderResponse;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -32,10 +34,11 @@ public class OrderDataMapper {
                 .toList();
     }
 
-    public CreateOrderResponse createOrderResponseFromOrder(Order order) {
+    public CreateOrderResponse createOrderResponseFromOrder(Order order, String message) {
         return CreateOrderResponse.builder()
                 .orderTrackingId(order.getTrackingId().getValue())
                 .orderStatus(order.getOrderStatus())
+                .message(message)
                 .build();
     }
 
@@ -70,6 +73,14 @@ public class OrderDataMapper {
                 address.getStreet(),
                 address.getPostalCode(),
                 address.getCity()
+        );
+    }
+
+    public TrackOrderResponse createTrackOrderResponseFromOrder(Order order) {
+        return new TrackOrderResponse(
+                order.getTrackingId().getValue(),
+                order.getOrderStatus(),
+                order.getFailureMessages()
         );
     }
 }

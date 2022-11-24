@@ -105,15 +105,15 @@ public class Order extends AggregateRoot<OrderId> {
         validateItemsPrice();
     }
 
-    private void validateInitialOrder() { // FIXME not consistent as in the course
-        if (orderStatus == null || getId() == null) {
-            throw new OrderDomainException("Cannot process null orderStatus or orderId");
+    private void validateInitialOrder() {
+        if (orderStatus != null || getId() != null) {
+            throw new OrderDomainException("Order is not in correct state for initialization!");
         }
     }
 
     private void validateTotalPrice() {
         if (price == null || !price.isGreaterThanZero()) {
-            throw new OrderDomainException("Cannot process incorrect price");
+            throw new OrderDomainException("Total price must be greater than zero!");
         }
     }
 

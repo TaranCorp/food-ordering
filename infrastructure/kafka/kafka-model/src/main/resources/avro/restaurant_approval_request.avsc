@@ -1,0 +1,84 @@
+{
+    "namespace": "org.food.ordering.kafka.order.avro.model",
+    "name": "RestaurantApprovalRequestAvroModel",
+    "type": "record",
+    "fields": [
+        {
+            "name": "id",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "sagaId",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "restaurantId",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "orderId",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "restaurantOrderStatus",
+            "type": {
+                "type": "enum",
+                "name": "RestaurantOrderStatus",
+                "symbols": ["PAID"]
+            }
+        },
+        {
+            "name": "products",
+            "type": {
+                "type": "array",
+                "items": {
+                    "name": "Product",
+                    "type": "record",
+                    "fields": [
+                        {
+                            "name": "id",
+                            "type": {
+                                "type": "string",
+                                "logicalType": "uuid"
+                            }
+                        },
+                        {
+                            "name": "quantity",
+                            "type": {
+                                "type": "int"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "price",
+            "type": {
+                "type": "bytes",
+                "logicalType": "decimal",
+                "precision": 10,
+                "scale": 2
+            }
+        },
+        {
+            "name": "createdAt",
+            "type": {
+                "type": "long",
+                "logicalType": "timestamp-millis"
+            }
+        }
+    ]
+}

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-class OrderCreateCommandHandler {
+public class OrderCreateCommandHandler {
 
     private final OrderCreateHelper orderCreateHelper;
     private final OrderDataMapper orderDataMapper;
@@ -28,6 +28,6 @@ class OrderCreateCommandHandler {
         Order order = orderCreatedEvent.getOrder();
         log.info("Order is created with id: {}", order.getId().getValue());
         publisher.publish(orderCreatedEvent);
-        return orderDataMapper.createOrderResponseFromOrder(order);
+        return orderDataMapper.createOrderResponseFromOrder(order, "Order created successfully");
     }
 }
