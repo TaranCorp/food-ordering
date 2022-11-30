@@ -21,10 +21,8 @@ import org.food.ordering.order.service.domain.port.input.service.OrderApplicatio
 import org.food.ordering.order.service.domain.port.output.repository.CustomerRepository;
 import org.food.ordering.order.service.domain.port.output.repository.OrderRepository;
 import org.food.ordering.order.service.domain.port.output.repository.RestaurantRepository;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -161,7 +159,7 @@ public class OrderApplicationServiceTest {
         Order order = orderDataMapper.createOrderFromOrderCommand(createOrderCommand);
         order.setId(new OrderId(ORDER_ID));
 
-        when(customerRepository.findCustomer(CUSTOMER_ID)).thenReturn(Optional.of(customer));
+        when(customerRepository.findById(CUSTOMER_ID)).thenReturn(Optional.of(customer));
         when(restaurantRepository.findRestaurantInformation(
                 orderDataMapper.createRestaurantFromOrderCommand(createOrderCommand))
         ).thenReturn(Optional.of(restaurantResponse));

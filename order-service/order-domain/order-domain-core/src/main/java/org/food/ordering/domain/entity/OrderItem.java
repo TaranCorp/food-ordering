@@ -46,7 +46,10 @@ public class OrderItem extends BaseEntity<OrderItemId> {
     }
 
     public void validatePrice() {
-        if (!price.isGreaterThanZero() || !price.equals(product.getPrice()) || !price.multiply(quantity).equals(subTotal)) {
+        if (!price.isGreaterThanZero() ||
+            !price.equals(product.getPrice()) ||
+            !price.multiply(quantity).equals(subTotal)
+        ) {
             throw new OrderItemException("Cannot process incorrect order item price");
         }
     }

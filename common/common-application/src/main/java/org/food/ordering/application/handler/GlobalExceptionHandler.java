@@ -36,12 +36,8 @@ public class GlobalExceptionHandler {
         log.error(exception.getMessage(), exception);
 
         return exception instanceof ConstraintViolationException
-                ? createBadRequestDTO(
-                        extractValidationMessages((ConstraintViolationException) exception)
-                )
-                : createBadRequestDTO(
-                        VALIDATION_EXCEPTION_MESSAGE
-                );
+                ? createBadRequestDTO(extractValidationMessages((ConstraintViolationException) exception))
+                : createBadRequestDTO(VALIDATION_EXCEPTION_MESSAGE);
     }
 
     private String extractValidationMessages(ConstraintViolationException exception) {

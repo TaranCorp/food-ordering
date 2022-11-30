@@ -3,9 +3,15 @@ package org.food.ordering.domain.entity;
 import org.food.ordering.domain.valueobject.Money;
 import org.food.ordering.domain.valueobject.ProductId;
 
+import java.util.UUID;
+
 public class Product extends BaseEntity<ProductId> {
     private String name;
     private Money price;
+
+    public static Product createProductUsingId(UUID productId) {
+        return new Product(new ProductId(productId));
+    }
 
     public Product(ProductId productId, String name, Money price) {
         super.setId(productId);

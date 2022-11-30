@@ -72,7 +72,7 @@ public class OrderCreateHelper {
         if (customerId == null) {
             throw new BadArgumentException("Cannot process null customer ID");
         }
-        customerRepository.findCustomer(customerId).orElseThrow(() -> {
+        customerRepository.findById(customerId).orElseThrow(() -> {
             log.warn("Could not find customer with id: {}", customerId);
             return new OrderDomainException(String.format("Could not find customer with id: %s", customerId));
         });
