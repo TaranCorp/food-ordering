@@ -26,6 +26,14 @@ public class Payment extends AggregateRoot<PaymentId> {
         this.price = price;
     }
 
+    public Payment(OrderId orderId, CustomerId customerId, Money price, PaymentStatus paymentStatus, ZonedDateTime createdAt) {
+        this.orderId = orderId;
+        this.customerId = customerId;
+        this.price = price;
+        this.paymentStatus = paymentStatus;
+        this.createdAt = createdAt;
+    }
+
     public void initializePayment() {
         setId(new PaymentId(UUID.randomUUID()));
         createdAt = ZonedDateTime.now(ZoneId.of("UTC"));
