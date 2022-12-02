@@ -9,6 +9,7 @@
         <module>infrastructure</module>
         <module>customer-service</module>
         <module>payment-service</module>
+        <module>restaurant-service</module>
     </modules>
 
     <parent>
@@ -66,6 +67,16 @@
             <dependency>
                 <groupId>org.taranco</groupId>
                 <artifactId>payment-application-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.taranco</groupId>
+                <artifactId>payment-data-access</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.taranco</groupId>
+                <artifactId>payment-messaging</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
