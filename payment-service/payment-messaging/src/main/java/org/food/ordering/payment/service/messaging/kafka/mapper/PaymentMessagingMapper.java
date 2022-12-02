@@ -1,7 +1,10 @@
 package org.food.ordering.payment.service.messaging.kafka.mapper;
 
+import org.food.ordering.domain.valueobject.PaymentOrderStatus;
+import org.food.ordering.kafka.order.avro.model.PaymentRequestAvroModel;
 import org.food.ordering.kafka.order.avro.model.PaymentResponseAvroModel;
 import org.food.ordering.kafka.order.avro.model.PaymentStatus;
+import org.food.ordering.payment.service.domain.dto.PaymentRequest;
 import org.food.ordering.payment.service.domain.entity.Payment;
 import org.food.ordering.payment.service.domain.event.PaymentCancelledEvent;
 import org.food.ordering.payment.service.domain.event.PaymentCompletedEvent;
@@ -54,6 +57,18 @@ public class PaymentMessagingMapper {
                 .setPaymentStatus(PaymentStatus.valueOf(payment.getPaymentStatus().name()))
                 .setOrderId(payment.getOrderId().getValue().toString())
                 .setCustomerId(payment.getOrderId().getValue().toString())
+                .build();
+    }
+
+    public PaymentRequest paymentRequestFromPaymentRequestAvroModel(PaymentRequestAvroModel paymentRequestAvroModel) {
+        return PaymentRequest.builder()
+                .id(paymentRequestAvroModel.getId())
+                .createdAt(paymentRequestAvroModel.getCreatedAt())
+                .orderId(paymentRequestAvroModel.getOrderId())
+                .sagaId(paymentRequestAvroModel.getSagaId())
+                .price(paymentRequestAvroModel.getPrice())
+                .paymentOrderStatus(PaymentOrderStatus.valueOf(paymentRequestAvroModel.getPaymentOrderStatus().name()))
+                .customerId(paymentRequestAvroModel.getOrderId())
                 .build();
     }
 }
