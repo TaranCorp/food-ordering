@@ -1,4 +1,4 @@
-package org.food.ordering.order.service.dataaccess.restaurant.entity;
+package org.food.ordering.dataaccess.restaurant.entity;
 
 
 import java.io.Serializable;

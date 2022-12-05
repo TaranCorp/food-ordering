@@ -1,12 +1,12 @@
 package org.food.ordering.order.service.dataaccess.restaurant.mapper;
 
+import org.food.ordering.dataaccess.restaurant.entity.RestaurantEntity;
+import org.food.ordering.dataaccess.restaurant.exception.NotFoundException;
 import org.food.ordering.domain.entity.Product;
 import org.food.ordering.domain.entity.Restaurant;
 import org.food.ordering.domain.valueobject.Money;
 import org.food.ordering.domain.valueobject.ProductId;
 import org.food.ordering.domain.valueobject.RestaurantId;
-import org.food.ordering.order.service.dataaccess.restaurant.entity.RestaurantEntity;
-import org.food.ordering.order.service.dataaccess.restaurant.exception.NotFoundException;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package org.food.ordering.order.service.dataaccess.restaurant.entity;
+package org.food.ordering.dataaccess.restaurant.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -22,6 +22,7 @@ public class RestaurantEntity {
     private Boolean restaurantActive;
     private String productName;
     private BigDecimal productPrice;
+    private Boolean productActive;
 
     public RestaurantEntity() {
     }
@@ -85,5 +86,13 @@ public class RestaurantEntity {
     @Override
     public int hashCode() {
         return Objects.hash(restaurantId, productId);
+    }
+
+    public Boolean getProductActive() {
+        return productActive;
+    }
+
+    public void setProductActive(Boolean productActive) {
+        this.productActive = productActive;
     }
 }

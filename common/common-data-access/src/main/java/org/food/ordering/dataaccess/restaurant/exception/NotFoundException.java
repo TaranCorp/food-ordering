@@ -1,4 +1,4 @@
-package org.food.ordering.order.service.dataaccess.restaurant.exception;
+package org.food.ordering.dataaccess.restaurant.exception;
 
 public class NotFoundException extends RuntimeException {
     public NotFoundException(String message) {
