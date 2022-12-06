@@ -9,6 +9,10 @@ public class Product extends BaseEntity<ProductId> {
     private String name;
     private Money price;
 
+    public Product(ProductId productId, int quantity) {
+        super.setId(productId);
+    }
+
     public static Product createProductUsingId(UUID productId) {
         return new Product(new ProductId(productId));
     }

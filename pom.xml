@@ -91,6 +91,16 @@
             </dependency>
             <dependency>
                 <groupId>org.taranco</groupId>
+                <artifactId>restaurant-messaging</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.taranco</groupId>
+                <artifactId>restaurant-data-access</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.taranco</groupId>
                 <artifactId>common-data-access</artifactId>
                 <version>${project.version}</version>
             </dependency>

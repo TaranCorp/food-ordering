@@ -2,7 +2,7 @@ package org.food.ordering.restaurant.service.dataaccess.restaurant.adapter;
 
 import org.food.ordering.dataaccess.restaurant.entity.RestaurantEntity;
 import org.food.ordering.dataaccess.restaurant.repository.RestaurantJpaRepository;
-import org.food.ordering.restaurant.service.dataaccess.restaurant.mapper.RestaurantDataMapper;
+import org.food.ordering.restaurant.service.dataaccess.restaurant.mapper.RestaurantDataAccessMapper;
 import org.food.ordering.restaurant.service.domain.entity.Product;
 import org.food.ordering.restaurant.service.domain.entity.Restaurant;
 import org.food.ordering.restaurant.service.domain.port.output.repository.RestaurantRepository;
@@ -17,9 +17,9 @@ import java.util.function.Function;
 public class RestaurantRepositoryImpl implements RestaurantRepository {
 
     private final RestaurantJpaRepository repository;
-    private final RestaurantDataMapper mapper;
+    private final RestaurantDataAccessMapper mapper;
 
-    public RestaurantRepositoryImpl(RestaurantJpaRepository repository, RestaurantDataMapper mapper) {
+    public RestaurantRepositoryImpl(RestaurantJpaRepository repository, RestaurantDataAccessMapper mapper) {
         this.repository = repository;
         this.mapper = mapper;
     }
