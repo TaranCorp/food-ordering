@@ -8,6 +8,7 @@ import org.food.ordering.order.service.domain.port.output.repository.OrderReposi
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @Repository
 public class OrderRepositoryImpl implements OrderRepository {
@@ -32,6 +33,12 @@ public class OrderRepositoryImpl implements OrderRepository {
     @Override
     public Optional<Order> findByTrackingId(TrackingId trackingId) {
         return repository.findByTrackingId(trackingId.getValue())
+                .map(mapper::orderFromOrderEntity);
+    }
+
+    @Override
+    public Optional<Order> findById(String id) {
+        return repository.findById(UUID.fromString(id))
                 .map(mapper::orderFromOrderEntity);
     }
 }
