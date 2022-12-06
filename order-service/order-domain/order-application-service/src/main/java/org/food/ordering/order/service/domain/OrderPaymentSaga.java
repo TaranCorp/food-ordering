@@ -20,14 +20,11 @@ public class OrderPaymentSaga implements SagaStep<PaymentResponse, OrderPaidEven
 
     private final OrderDomainService orderDomainService;
     private final OrderRepository orderRepository;
-    private final OrderPaidRestaurantRequestMessagePublisher orderPaidRestaurantRequestMessagePublisher;
 
     public OrderPaymentSaga(OrderDomainService orderDomainService,
-                            OrderRepository orderRepository,
-                            OrderPaidRestaurantRequestMessagePublisher orderPaidRestaurantRequestMessagePublisher) {
+                            OrderRepository orderRepository) {
         this.orderDomainService = orderDomainService;
         this.orderRepository = orderRepository;
-        this.orderPaidRestaurantRequestMessagePublisher = orderPaidRestaurantRequestMessagePublisher;
     }
 
     @Override
