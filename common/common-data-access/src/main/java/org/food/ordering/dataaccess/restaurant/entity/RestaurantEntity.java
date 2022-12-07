@@ -22,7 +22,7 @@ public class RestaurantEntity {
     private Boolean restaurantActive;
     private String productName;
     private BigDecimal productPrice;
-    private Boolean productActive;
+    private Boolean productAvailable;
 
     public RestaurantEntity() {
     }
@@ -51,12 +51,20 @@ public class RestaurantEntity {
         this.restaurantName = restaurantName;
     }
 
-    public Boolean isRestaurantActive() {
+    public boolean isRestaurantActive() {
         return restaurantActive;
     }
 
     public void setRestaurantActive(Boolean restaurantActive) {
         this.restaurantActive = restaurantActive;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public BigDecimal getProductPrice() {
@@ -67,12 +75,12 @@ public class RestaurantEntity {
         this.productPrice = productPrice;
     }
 
-    public String getProductName() {
-        return productName;
+    public Boolean getProductAvailable() {
+        return productAvailable;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setProductAvailable(Boolean productAvailable) {
+        this.productAvailable = productAvailable;
     }
 
     @Override
@@ -86,13 +94,5 @@ public class RestaurantEntity {
     @Override
     public int hashCode() {
         return Objects.hash(restaurantId, productId);
-    }
-
-    public Boolean getProductActive() {
-        return productActive;
-    }
-
-    public void setProductActive(Boolean productActive) {
-        this.productActive = productActive;
     }
 }

@@ -28,7 +28,7 @@ public class RestaurantDataAccessMapper {
                             new ProductId(product.getProductId()),
                             product.getProductName(),
                             new Money(product.getProductPrice()),
-                            product.getProductActive()
+                            product.getProductAvailable()
                         )
                 )
                 .toList();

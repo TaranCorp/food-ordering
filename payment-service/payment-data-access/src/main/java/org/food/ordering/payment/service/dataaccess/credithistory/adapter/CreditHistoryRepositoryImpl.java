@@ -32,7 +32,7 @@ public class CreditHistoryRepositoryImpl implements CreditHistoryRepository {
 
     @Override
     public Optional<List<CreditHistory>> findByCustomerId(CustomerId customerId) {
-        return repository.findByCustomerId(customerId)
+        return repository.findByCustomerId(customerId.getValue())
                 .map(mapper::creditHistoryFromCreditHistoryEntities);
     }
 }

@@ -6,6 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -36,7 +37,7 @@ public class OrderEntity {
     @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
     private OrderAddressEntity orderAddress;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<OrderItemEntity> items = new ArrayList<>();
 
     public OrderEntity() {

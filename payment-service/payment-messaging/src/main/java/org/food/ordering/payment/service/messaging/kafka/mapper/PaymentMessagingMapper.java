@@ -68,7 +68,7 @@ public class PaymentMessagingMapper {
                 .sagaId(paymentRequestAvroModel.getSagaId())
                 .price(paymentRequestAvroModel.getPrice())
                 .paymentOrderStatus(PaymentOrderStatus.valueOf(paymentRequestAvroModel.getPaymentOrderStatus().name()))
-                .customerId(paymentRequestAvroModel.getOrderId())
+                .customerId(paymentRequestAvroModel.getCustomerId())
                 .build();
     }
 }

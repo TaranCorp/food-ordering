@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class PaymentCompletedKafkaPublisher implements PaymentCompletedMessagePublisher {
-    private static final Logger log = LoggerFactory.getLogger(PaymentCancelledKafkaPublisher.class);
+    private static final Logger log = LoggerFactory.getLogger(PaymentCompletedKafkaPublisher.class);
 
     private final KafkaProducer<String, PaymentResponseAvroModel> kafkaProducer;
     private final PaymentServiceConfig paymentServiceConfigData;

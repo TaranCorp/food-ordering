@@ -2,95 +2,102 @@ DROP SCHEMA IF EXISTS restaurant CASCADE;
 
 CREATE SCHEMA restaurant;
 
-create extension if not exists "uuid-ossp";
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
-drop table if exists restaurant.restaurants;
+DROP TABLE IF EXISTS restaurant.restaurants CASCADE;
 
-create table restaurant.restaurants (
-    id uuid not null primary key,
-    name character varying collate pg_catalog."default" NOT NULL,
-    active boolean not null
+CREATE TABLE restaurant.restaurants
+(
+    id uuid NOT NULL,
+    name character varying COLLATE pg_catalog."default" NOT NULL,
+    active boolean NOT NULL,
+    CONSTRAINT restaurants_pkey PRIMARY KEY (id)
 );
 
-drop type if exists order_status;
+DROP TYPE IF EXISTS approval_status;
 
-create type order_status as enum ('APPROVED', 'REJECTED');
+CREATE TYPE approval_status AS ENUM ('APPROVED', 'REJECTED');
 
-drop table if exists restaurant.order_approval cascade;
+DROP TABLE IF EXISTS restaurant.order_approval CASCADE;
 
-create table restaurant.order_approval (
-    id uuid not null primary key,
-    restaurant_id uuid not null,
-    order_id uuid not null,
-    status order_approval not null
+CREATE TABLE restaurant.order_approval
+(
+    id uuid NOT NULL,
+    restaurant_id uuid NOT NULL,
+    order_id uuid NOT NULL,
+    status approval_status NOT NULL,
+    CONSTRAINT order_approval_pkey PRIMARY KEY (id)
 );
 
-drop table if exists restaurant.products;
+DROP TABLE IF EXISTS restaurant.products CASCADE;
 
-create table restaurant.products (
-    id uuid not null primary key,
-    name character varying collate pg_catalog."default" not null,
-    price numeric(10, 2) not null,
-    available boolean not null
+CREATE TABLE restaurant.products
+(
+    id uuid NOT NULL,
+    name character varying COLLATE pg_catalog."default" NOT NULL,
+    price numeric(10,2) NOT NULL,
+    available boolean NOT NULL,
+    CONSTRAINT products_pkey PRIMARY KEY (id)
 );
 
+DROP TABLE IF EXISTS restaurant.restaurant_products CASCADE;
 
-drop table if exists restaurant.restaurant_products cascade;
-
-create table restaurant.restaurant_products (
-    id uuid not null primary key,
-    restaurant_id uuid not null,
-    product_id uuid not null
+CREATE TABLE restaurant.restaurant_products
+(
+    id uuid NOT NULL,
+    restaurant_id uuid NOT NULL,
+    product_id uuid NOT NULL,
+    CONSTRAINT restaurant_products_pkey PRIMARY KEY (id)
 );
 
-alter table restaurant.restaurant_products
-    add constraint "FK_RESTAURANT_ID" foreign key (restaurant_id)
-    references restaurant.restaurants (id) match simple
-    on update no action
-    on delete restrict
-    not valid;
+ALTER TABLE restaurant.restaurant_products
+    ADD CONSTRAINT "FK_RESTAURANT_ID" FOREIGN KEY (restaurant_id)
+    REFERENCES restaurant.restaurants (id) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE RESTRICT
+    NOT VALID;
 
-alter table restaurant.restaurant_products
-    add constraint "FK_PRODUCT_ID" foreign key (product_id)
-    references restaurant.products (id) match simple
-    on update no action
-    in delete restrict
-    not valid;
+ALTER TABLE restaurant.restaurant_products
+    ADD CONSTRAINT "FK_PRODUCT_ID" FOREIGN KEY (product_id)
+    REFERENCES restaurant.products (id) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE RESTRICT
+    NOT VALID;
 
-create materialized view restaurant.order_restaurant_m_view
-tablespace pg_default
-as
- select r.id as restaurant_id,
- r.name as restaurant_name,
- r.active as restaurant_active,
- p.id as product_id,
- p.name as product_name,
- p.price as product_price,
- p.available as product_available
-from restaurant.restaurants r,
-restaurant.products p,
-restaurant.restaurant_products rp,
-where r.id = rp.restaurant_id and p.id = rp.product_id
-with data;
+DROP MATERIALIZED VIEW IF EXISTS restaurant.order_restaurant_m_view;
 
-refresh materialized view restaurant.refresh_order_restaurant_m_view;
+CREATE MATERIALIZED VIEW restaurant.order_restaurant_m_view
+TABLESPACE pg_default
+AS
+ SELECT r.id AS restaurant_id,
+    r.name AS restaurant_name,
+    r.active AS restaurant_active,
+    p.id AS product_id,
+    p.name AS product_name,
+    p.price AS product_price,
+    p.available AS product_available
+   FROM restaurant.restaurants r,
+    restaurant.products p,
+    restaurant.restaurant_products rp
+  WHERE r.id = rp.restaurant_id AND p.id = rp.product_id
+WITH DATA;
 
-create or replace function restaurant.refresh_order_restaurant_m_view()
+refresh materialized VIEW restaurant.order_restaurant_m_view;
+
+DROP function IF EXISTS restaurant.refresh_order_restaurant_m_view;
+
+CREATE OR replace function restaurant.refresh_order_restaurant_m_view()
 returns trigger
-as '
-begin
-refresh materialized view restaurant.order_restaurant_m_view;
-return null;
-end;
-' language plpgsql;
+AS '
+BEGIN
+    refresh materialized VIEW restaurant.order_restaurant_m_view;
+    return null;
+END;
+'  LANGUAGE plpgsql;
 
-drop trigger if exists refresh_order_restaurant_m_view on restaurant.restaurant_products;
+DROP trigger IF EXISTS refresh_order_restaurant_m_view ON restaurant.restaurant_products;
 
-create trigger refresh_order_restaurant_m_view
-after insert or update or delete or truncate
-on restaurant.restaurant_products for each statement
-execute procedure restaurant.refresh_order_restaurant_m_view();
-
-
-
-
+CREATE trigger refresh_order_restaurant_m_view
+after INSERT OR UPDATE OR DELETE OR truncate
+ON restaurant.restaurant_products FOR each statement
+EXECUTE PROCEDURE restaurant.refresh_order_restaurant_m_view();

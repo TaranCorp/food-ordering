@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.food.ordering.domain.valueobject.PaymentStatus;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -32,6 +33,7 @@ public class PaymentEntity {
     private UUID orderId;
     private BigDecimal price;
     @Enumerated(EnumType.STRING)
+    @Column(name = "status")
     private PaymentStatus paymentStatus;
     private ZonedDateTime createdAt;
 

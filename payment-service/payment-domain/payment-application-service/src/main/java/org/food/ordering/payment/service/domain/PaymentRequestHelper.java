@@ -60,7 +60,7 @@ class PaymentRequestHelper {
     }
 
     private CreditEntry getCreditEntry(CustomerId customerId) {
-        return creditEntryRepository.findByCustomerId(customerId)
+        return creditEntryRepository.findByCustomerId(customerId.getValue())
                 .orElseThrow(() -> {
                     String error = "Credit history for user with id: %s could not be found".formatted(customerId.getValue());
                     log.error(error);
@@ -70,6 +70,7 @@ class PaymentRequestHelper {
 
     private List<CreditHistory> getCreditHistory(CustomerId customerId) {
         return creditHistoryRepository.findByCustomerId(customerId)
+                .map(list -> new ArrayList(list))
                 .orElseThrow(() -> {
                     String error = "Could not find credit history for customer with id: %s".formatted(customerId.getValue());
                     log.error(error);

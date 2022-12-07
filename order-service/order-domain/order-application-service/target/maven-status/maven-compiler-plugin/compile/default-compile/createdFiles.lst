@@ -2,6 +2,8 @@ org\food\ordering\order\service\domain\port\output\message\publisher\payment\Ord
 org\food\ordering\order\service\domain\dto\create\OrderAddress$Builder.class
 org\food\ordering\order\service\domain\dto\message\RestaurantApprovalResponse.class
 org\food\ordering\order\service\domain\OrderTrackCommandHandler.class
+org\food\ordering\order\service\domain\OrderApprovalSaga.class
+org\food\ordering\order\service\domain\OrderPaymentSaga.class
 org\food\ordering\order\service\domain\port\input\service\OrderApplicationService.class
 org\food\ordering\order\service\domain\dto\create\CreateOrderCommand$Builder.class
 org\food\ordering\order\service\domain\OrderCreateCommandHandler.class
@@ -21,6 +23,7 @@ org\food\ordering\order\service\domain\port\output\message\publisher\restauranta
 org\food\ordering\order\service\domain\config\OrderServiceConfigData.class
 org\food\ordering\order\service\domain\dto\create\CreateOrderResponse.class
 org\food\ordering\order\service\domain\port\input\message\listener\payment\PaymentResponseMessageListener.class
+org\food\ordering\order\service\domain\SagaUtils.class
 org\food\ordering\order\service\domain\port\output\repository\RestaurantRepository.class
 org\food\ordering\order\service\domain\dto\create\CreateOrderResponse$Builder.class
 org\food\ordering\order\service\domain\dto\create\OrderItem.class

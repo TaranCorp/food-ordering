@@ -2,6 +2,7 @@ package org.food.ordering.payment.service.dataaccess.credithistory.entity;
 
 import org.food.ordering.payment.service.domain.valueobject.TransactionType;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -20,6 +21,7 @@ public class CreditHistoryEntity {
     private UUID customerId;
     private BigDecimal amount;
     @Enumerated(EnumType.STRING)
+    @Column(name = "type")
     private TransactionType transactionType;
 
     public CreditHistoryEntity() {

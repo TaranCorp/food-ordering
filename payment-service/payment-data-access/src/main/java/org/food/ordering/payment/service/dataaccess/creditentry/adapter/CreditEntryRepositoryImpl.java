@@ -1,6 +1,5 @@
 package org.food.ordering.payment.service.dataaccess.creditentry.adapter;
 
-import org.food.ordering.domain.valueobject.CustomerId;
 import org.food.ordering.payment.service.dataaccess.creditentry.mapper.CreditEntryDataAccessMapper;
 import org.food.ordering.payment.service.dataaccess.creditentry.repository.CreditEntryJpaRepository;
 import org.food.ordering.payment.service.domain.entity.CreditEntry;
@@ -8,6 +7,7 @@ import org.food.ordering.payment.service.domain.ports.output.repository.CreditEn
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @Repository
 public class CreditEntryRepositoryImpl implements CreditEntryRepository {
@@ -30,7 +30,7 @@ public class CreditEntryRepositoryImpl implements CreditEntryRepository {
     }
 
     @Override
-    public Optional<CreditEntry> findByCustomerId(CustomerId customerId) {
+    public Optional<CreditEntry> findByCustomerId(UUID customerId) {
         return repository.findByCustomerId(customerId)
                 .map(mapper::creditEntryFromCreditEntryEntity);
     }
