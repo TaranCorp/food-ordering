@@ -1,3 +1,11 @@
 # Default ignored files
 /shelf/
 /workspace.xml
+/azure/azureSettings.xml
+/compiler.xml
+/dbnavigator.xml
+/encodings.xml
+/jarRepositories.xml
+/jpa-buddy.xml
+/misc.xml
+/vcs.xml
