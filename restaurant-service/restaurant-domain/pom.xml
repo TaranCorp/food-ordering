@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>restaurant-service</artifactId>
-        <groupId>org.taranco</groupId>
+        <groupId>com.food.ordering.system</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -12,8 +12,8 @@
     <artifactId>restaurant-domain</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>restaurant-application-service</module>
         <module>restaurant-domain-core</module>
+        <module>restaurant-application-service</module>
     </modules>
 
 </project>

@@ -17,7 +17,7 @@ CREATE TABLE "payment".payments
     order_id uuid NOT NULL,
     price numeric(10,2) NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE NOT NULL,
-    status character varying collate pg_catalog."default" NOT NULL,
+    status payment_status NOT NULL,
     CONSTRAINT payments_pkey PRIMARY KEY (id)
 );
 
@@ -42,6 +42,6 @@ CREATE TABLE "payment".credit_history
     id uuid NOT NULL,
     customer_id uuid NOT NULL,
     amount numeric(10,2) NOT NULL,
-    type character varying collate pg_catalog."default" NOT NULL,
+    type transaction_type NOT NULL,
     CONSTRAINT credit_history_pkey PRIMARY KEY (id)
 );

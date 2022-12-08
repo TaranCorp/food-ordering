@@ -1,5 +1,5 @@
 {
-    "namespace": "org.food.ordering.kafka.order.avro.model",
+    "namespace": "com.food.ordering.system.kafka.order.avro.model",
     "type": "record",
     "name": "PaymentResponseAvroModel",
     "fields": [
@@ -57,18 +57,18 @@
         {
             "name": "paymentStatus",
             "type": {
-                "type": "enum",
-                "name": "PaymentStatus",
-                "symbols": ["COMPLETED", "CANCELLED", "FAILED"]
-            }
+                  "type": "enum",
+                  "name": "PaymentStatus",
+                  "symbols": ["COMPLETED", "CANCELLED", "FAILED"]
+               }
         },
         {
             "name": "failureMessages",
             "type": {
                 "type": "array",
-                "items": {
-                    "type": "string"
-                }
+                "items":{
+                  "type":"string"
+               }
             }
         }
     ]

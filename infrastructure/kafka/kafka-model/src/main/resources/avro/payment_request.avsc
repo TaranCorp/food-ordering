@@ -1,5 +1,5 @@
 {
-    "namespace": "org.food.ordering.kafka.order.avro.model",
+    "namespace": "com.food.ordering.system.kafka.order.avro.model",
     "type": "record",
     "name": "PaymentRequestAvroModel",
     "fields": [
@@ -50,10 +50,10 @@
         {
             "name": "paymentOrderStatus",
             "type": {
-                "type": "enum",
-                "name": "PaymentOrderStatus",
-                "symbols": ["PENDING", "CANCELLED"]
-            }
+                  "type": "enum",
+                  "name": "PaymentOrderStatus",
+                  "symbols": ["PENDING", "CANCELLED"]
+               }
         }
     ]
 }

@@ -1,7 +1,7 @@
 {
-    "namespace": "org.food.ordering.kafka.order.avro.model",
-    "name": "RestaurantApprovalResponseAvroModel",
+    "namespace": "com.food.ordering.system.kafka.order.avro.model",
     "type": "record",
+    "name": "RestaurantApprovalResponseAvroModel",
     "fields": [
         {
             "name": "id",
@@ -41,20 +41,19 @@
         {
             "name": "orderApprovalStatus",
             "type": {
-                "type": "enum",
-                "name": "OrderApprovalStatus",
-                "symbols": ["APPROVED", "REJECTED"]
-            }
+                  "type": "enum",
+                  "name": "OrderApprovalStatus",
+                  "symbols": ["APPROVED", "REJECTED"]
+               }
         },
         {
             "name": "failureMessages",
             "type": {
                 "type": "array",
-                "items": {
-                    "type": "string"
-                }
+                "items":{
+                  "type":"string"
+               }
             }
         }
-
     ]
 }
