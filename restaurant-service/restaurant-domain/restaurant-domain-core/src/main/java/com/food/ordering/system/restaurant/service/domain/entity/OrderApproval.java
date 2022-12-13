@@ -1,10 +1,10 @@
-package com.food.ordering.system.restaurant.service.domain.entity;
+package org.food.ordering.restaurant.service.domain.entity;
 
-import com.food.ordering.system.domain.entity.BaseEntity;
-import com.food.ordering.system.domain.valueobject.OrderApprovalStatus;
-import com.food.ordering.system.domain.valueobject.OrderId;
-import com.food.ordering.system.domain.valueobject.RestaurantId;
-import com.food.ordering.system.restaurant.service.domain.valueobject.OrderApprovalId;
+import org.food.ordering.domain.entity.BaseEntity;
+import org.food.ordering.domain.valueobject.OrderApprovalStatus;
+import org.food.ordering.domain.valueobject.OrderId;
+import org.food.ordering.domain.valueobject.RestaurantId;
+import org.food.ordering.restaurant.service.domain.valueobject.OrderApprovalId;
 
 public class OrderApproval extends BaseEntity<OrderApprovalId> {
     private final RestaurantId restaurantId;

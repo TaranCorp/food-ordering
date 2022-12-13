@@ -1,11 +1,11 @@
-package com.food.ordering.system.restaurant.service.domain.entity;
+package org.food.ordering.restaurant.service.domain.entity;
 
-import com.food.ordering.system.domain.entity.AggregateRoot;
-import com.food.ordering.system.domain.valueobject.Money;
-import com.food.ordering.system.domain.valueobject.OrderApprovalStatus;
-import com.food.ordering.system.domain.valueobject.OrderStatus;
-import com.food.ordering.system.domain.valueobject.RestaurantId;
-import com.food.ordering.system.restaurant.service.domain.valueobject.OrderApprovalId;
+import org.food.ordering.domain.entity.AggregateRoot;
+import org.food.ordering.domain.valueobject.Money;
+import org.food.ordering.domain.valueobject.OrderApprovalStatus;
+import org.food.ordering.domain.valueobject.OrderStatus;
+import org.food.ordering.domain.valueobject.RestaurantId;
+import org.food.ordering.restaurant.service.domain.valueobject.OrderApprovalId;
 
 import java.util.List;
 import java.util.UUID;

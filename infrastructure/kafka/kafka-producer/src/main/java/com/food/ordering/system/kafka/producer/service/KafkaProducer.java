@@ -1,4 +1,4 @@
-package com.food.ordering.system.kafka.producer.service;
+package org.food.ordering.kafka.producer.service;
 
 import org.apache.avro.specific.SpecificRecordBase;
 import org.springframework.kafka.support.SendResult;

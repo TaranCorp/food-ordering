@@ -1,4 +1,4 @@
-package com.food.ordering.system.kafka.producer;
+package org.food.ordering.kafka.producer;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.RecordMetadata;

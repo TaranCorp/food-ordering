@@ -1,6 +1,6 @@
-package com.food.ordering.system.order.service.domain.ports.output.repository;
+package org.food.ordering.order.service.domain.ports.output.repository;
 
-import com.food.ordering.system.order.service.domain.entity.Restaurant;
+import org.food.ordering.order.service.domain.entity.Restaurant;
 
 import java.util.Optional;
 

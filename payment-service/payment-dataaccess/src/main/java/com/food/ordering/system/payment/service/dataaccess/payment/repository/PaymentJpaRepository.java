@@ -1,6 +1,6 @@
-package com.food.ordering.system.payment.service.dataaccess.payment.repository;
+package org.food.ordering.payment.service.dataaccess.payment.repository;
 
-import com.food.ordering.system.payment.service.dataaccess.payment.entity.PaymentEntity;
+import org.food.ordering.payment.service.dataaccess.payment.entity.PaymentEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

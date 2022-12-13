@@ -1,9 +1,9 @@
-package com.food.ordering.system.payment.service.dataaccess.payment.adapter;
+package org.food.ordering.payment.service.dataaccess.payment.adapter;
 
-import com.food.ordering.system.payment.service.dataaccess.payment.mapper.PaymentDataAccessMapper;
-import com.food.ordering.system.payment.service.dataaccess.payment.repository.PaymentJpaRepository;
-import com.food.ordering.system.payment.service.domain.entity.Payment;
-import com.food.ordering.system.payment.service.domain.ports.output.repository.PaymentRepository;
+import org.food.ordering.payment.service.dataaccess.payment.mapper.PaymentDataAccessMapper;
+import org.food.ordering.payment.service.dataaccess.payment.repository.PaymentJpaRepository;
+import org.food.ordering.payment.service.domain.entity.Payment;
+import org.food.ordering.payment.service.domain.ports.output.repository.PaymentRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;

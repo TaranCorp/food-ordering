@@ -1,11 +1,11 @@
-package com.food.ordering.system.payment.service.dataaccess.payment.mapper;
+package org.food.ordering.payment.service.dataaccess.payment.mapper;
 
-import com.food.ordering.system.domain.valueobject.CustomerId;
-import com.food.ordering.system.domain.valueobject.Money;
-import com.food.ordering.system.domain.valueobject.OrderId;
-import com.food.ordering.system.payment.service.dataaccess.payment.entity.PaymentEntity;
-import com.food.ordering.system.payment.service.domain.entity.Payment;
-import com.food.ordering.system.payment.service.domain.valueobject.PaymentId;
+import org.food.ordering.domain.valueobject.CustomerId;
+import org.food.ordering.domain.valueobject.Money;
+import org.food.ordering.domain.valueobject.OrderId;
+import org.food.ordering.payment.service.dataaccess.payment.entity.PaymentEntity;
+import org.food.ordering.payment.service.domain.entity.Payment;
+import org.food.ordering.payment.service.domain.valueobject.PaymentId;
 import org.springframework.stereotype.Component;
 
 @Component

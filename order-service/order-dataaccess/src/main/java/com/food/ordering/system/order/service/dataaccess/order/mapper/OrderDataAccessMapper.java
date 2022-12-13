@@ -1,15 +1,15 @@
-package com.food.ordering.system.order.service.dataaccess.order.mapper;
+package org.food.ordering.order.service.dataaccess.order.mapper;
 
-import com.food.ordering.system.domain.valueobject.*;
-import com.food.ordering.system.order.service.dataaccess.order.entity.OrderAddressEntity;
-import com.food.ordering.system.order.service.dataaccess.order.entity.OrderEntity;
-import com.food.ordering.system.order.service.dataaccess.order.entity.OrderItemEntity;
-import com.food.ordering.system.order.service.domain.entity.Order;
-import com.food.ordering.system.order.service.domain.entity.OrderItem;
-import com.food.ordering.system.order.service.domain.entity.Product;
-import com.food.ordering.system.order.service.domain.valueobject.OrderItemId;
-import com.food.ordering.system.order.service.domain.valueobject.StreetAddress;
-import com.food.ordering.system.order.service.domain.valueobject.TrackingId;
+import org.food.ordering.domain.valueobject.*;
+import org.food.ordering.order.service.dataaccess.order.entity.OrderAddressEntity;
+import org.food.ordering.order.service.dataaccess.order.entity.OrderEntity;
+import org.food.ordering.order.service.dataaccess.order.entity.OrderItemEntity;
+import org.food.ordering.order.service.domain.entity.Order;
+import org.food.ordering.order.service.domain.entity.OrderItem;
+import org.food.ordering.order.service.domain.entity.Product;
+import org.food.ordering.order.service.domain.valueobject.OrderItemId;
+import org.food.ordering.order.service.domain.valueobject.StreetAddress;
+import org.food.ordering.order.service.domain.valueobject.TrackingId;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.food.ordering.system.order.service.domain.entity.Order.FAILURE_MESSAGE_DELIMITER;
+import static org.food.ordering.order.service.domain.entity.Order.FAILURE_MESSAGE_DELIMITER;
 
 @Component
 public class OrderDataAccessMapper {

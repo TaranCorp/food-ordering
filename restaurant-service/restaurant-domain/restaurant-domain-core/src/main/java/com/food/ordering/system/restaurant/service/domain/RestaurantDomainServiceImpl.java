@@ -1,18 +1,18 @@
-package com.food.ordering.system.restaurant.service.domain;
+package org.food.ordering.restaurant.service.domain;
 
-import com.food.ordering.system.domain.event.publisher.DomainEventPublisher;
-import com.food.ordering.system.domain.valueobject.OrderApprovalStatus;
-import com.food.ordering.system.restaurant.service.domain.entity.Restaurant;
-import com.food.ordering.system.restaurant.service.domain.event.OrderApprovalEvent;
-import com.food.ordering.system.restaurant.service.domain.event.OrderApprovedEvent;
-import com.food.ordering.system.restaurant.service.domain.event.OrderRejectedEvent;
+import org.food.ordering.domain.event.publisher.DomainEventPublisher;
+import org.food.ordering.domain.valueobject.OrderApprovalStatus;
+import org.food.ordering.restaurant.service.domain.entity.Restaurant;
+import org.food.ordering.restaurant.service.domain.event.OrderApprovalEvent;
+import org.food.ordering.restaurant.service.domain.event.OrderApprovedEvent;
+import org.food.ordering.restaurant.service.domain.event.OrderRejectedEvent;
 import lombok.extern.slf4j.Slf4j;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.List;
 
-import static com.food.ordering.system.domain.DomainConstants.UTC;
+import static org.food.ordering.domain.DomainConstants.UTC;
 
 @Slf4j
 public class RestaurantDomainServiceImpl implements RestaurantDomainService {

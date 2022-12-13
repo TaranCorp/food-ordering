@@ -1,4 +1,4 @@
-package com.food.ordering.system.domain.event;
+package org.food.ordering.domain.event;
 
 public final class EmptyEvent implements DomainEvent<Void> {
 

@@ -1,4 +1,4 @@
-package com.food.ordering.system.restaurant.service.domain;
+package org.food.ordering.restaurant.service.domain;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

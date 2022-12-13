@@ -1,16 +1,16 @@
-package com.food.ordering.system.order.service.domain;
+package org.food.ordering.order.service.domain;
 
-import com.food.ordering.system.order.service.domain.ports.output.message.publisher.payment.OrderCancelledPaymentRequestMessagePublisher;
-import com.food.ordering.system.order.service.domain.ports.output.message.publisher.payment.OrderCreatedPaymentRequestMessagePublisher;
-import com.food.ordering.system.order.service.domain.ports.output.message.publisher.restaurantapproval.OrderPaidRestaurantRequestMessagePublisher;
-import com.food.ordering.system.order.service.domain.ports.output.repository.CustomerRepository;
-import com.food.ordering.system.order.service.domain.ports.output.repository.OrderRepository;
-import com.food.ordering.system.order.service.domain.ports.output.repository.RestaurantRepository;
+import org.food.ordering.order.service.domain.ports.output.message.publisher.payment.OrderCancelledPaymentRequestMessagePublisher;
+import org.food.ordering.order.service.domain.ports.output.message.publisher.payment.OrderCreatedPaymentRequestMessagePublisher;
+import org.food.ordering.order.service.domain.ports.output.message.publisher.restaurantapproval.OrderPaidRestaurantRequestMessagePublisher;
+import org.food.ordering.order.service.domain.ports.output.repository.CustomerRepository;
+import org.food.ordering.order.service.domain.ports.output.repository.OrderRepository;
+import org.food.ordering.order.service.domain.ports.output.repository.RestaurantRepository;
 import org.mockito.Mockito;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-@SpringBootApplication(scanBasePackages = "com.food.ordering.system")
+@SpringBootApplication(scanBasePackages = "org.food.ordering")
 public class OrderTestConfiguration {
 
     @Bean

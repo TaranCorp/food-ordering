@@ -1,9 +1,9 @@
-package com.food.ordering.system.order.service.dataaccess.customer.adapter;
+package org.food.ordering.order.service.dataaccess.customer.adapter;
 
-import com.food.ordering.system.order.service.dataaccess.customer.mapper.CustomerDataAccessMapper;
-import com.food.ordering.system.order.service.dataaccess.customer.repository.CustomerJpaRepository;
-import com.food.ordering.system.order.service.domain.entity.Customer;
-import com.food.ordering.system.order.service.domain.ports.output.repository.CustomerRepository;
+import org.food.ordering.order.service.dataaccess.customer.mapper.CustomerDataAccessMapper;
+import org.food.ordering.order.service.dataaccess.customer.repository.CustomerJpaRepository;
+import org.food.ordering.order.service.domain.entity.Customer;
+import org.food.ordering.order.service.domain.ports.output.repository.CustomerRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;

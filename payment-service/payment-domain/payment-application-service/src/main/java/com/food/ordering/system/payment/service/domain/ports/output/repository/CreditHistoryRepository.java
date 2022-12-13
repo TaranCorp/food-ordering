@@ -1,7 +1,7 @@
-package com.food.ordering.system.payment.service.domain.ports.output.repository;
+package org.food.ordering.payment.service.domain.ports.output.repository;
 
-import com.food.ordering.system.domain.valueobject.CustomerId;
-import com.food.ordering.system.payment.service.domain.entity.CreditHistory;
+import org.food.ordering.domain.valueobject.CustomerId;
+import org.food.ordering.payment.service.domain.entity.CreditHistory;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,7 +1,7 @@
-package com.food.ordering.system.payment.service.domain.event;
+package org.food.ordering.payment.service.domain.event;
 
-import com.food.ordering.system.domain.event.DomainEvent;
-import com.food.ordering.system.payment.service.domain.entity.Payment;
+import org.food.ordering.domain.event.DomainEvent;
+import org.food.ordering.payment.service.domain.entity.Payment;
 
 import java.time.ZonedDateTime;
 import java.util.List;

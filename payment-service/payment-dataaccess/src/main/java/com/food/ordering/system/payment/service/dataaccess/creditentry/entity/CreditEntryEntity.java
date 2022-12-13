@@ -1,4 +1,4 @@
-package com.food.ordering.system.payment.service.dataaccess.creditentry.entity;
+package org.food.ordering.payment.service.dataaccess.creditentry.entity;
 
 import lombok.*;
 

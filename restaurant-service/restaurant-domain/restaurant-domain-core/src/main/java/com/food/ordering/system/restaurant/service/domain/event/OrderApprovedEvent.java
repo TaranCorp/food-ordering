@@ -1,8 +1,8 @@
-package com.food.ordering.system.restaurant.service.domain.event;
+package org.food.ordering.restaurant.service.domain.event;
 
-import com.food.ordering.system.domain.event.publisher.DomainEventPublisher;
-import com.food.ordering.system.domain.valueobject.RestaurantId;
-import com.food.ordering.system.restaurant.service.domain.entity.OrderApproval;
+import org.food.ordering.domain.event.publisher.DomainEventPublisher;
+import org.food.ordering.domain.valueobject.RestaurantId;
+import org.food.ordering.restaurant.service.domain.entity.OrderApproval;
 
 import java.time.ZonedDateTime;
 import java.util.List;

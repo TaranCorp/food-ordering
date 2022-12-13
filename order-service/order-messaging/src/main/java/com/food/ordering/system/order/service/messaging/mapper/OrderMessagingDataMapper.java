@@ -1,12 +1,12 @@
-package com.food.ordering.system.order.service.messaging.mapper;
+package org.food.ordering.order.service.messaging.mapper;
 
-import com.food.ordering.system.kafka.order.avro.model.*;
-import com.food.ordering.system.order.service.domain.dto.message.PaymentResponse;
-import com.food.ordering.system.order.service.domain.dto.message.RestaurantApprovalResponse;
-import com.food.ordering.system.order.service.domain.entity.Order;
-import com.food.ordering.system.order.service.domain.event.OrderCancelledEvent;
-import com.food.ordering.system.order.service.domain.event.OrderCreatedEvent;
-import com.food.ordering.system.order.service.domain.event.OrderPaidEvent;
+import org.food.ordering.kafka.order.avro.model.*;
+import org.food.ordering.order.service.domain.dto.message.PaymentResponse;
+import org.food.ordering.order.service.domain.dto.message.RestaurantApprovalResponse;
+import org.food.ordering.order.service.domain.entity.Order;
+import org.food.ordering.order.service.domain.event.OrderCancelledEvent;
+import org.food.ordering.order.service.domain.event.OrderCreatedEvent;
+import org.food.ordering.order.service.domain.event.OrderPaidEvent;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
@@ -50,10 +50,10 @@ public class OrderMessagingDataMapper {
                 .setOrderId(order.getId().getValue().toString())
                 .setRestaurantId(order.getRestaurantId().getValue().toString())
                 .setOrderId(order.getId().getValue().toString())
-                .setRestaurantOrderStatus(com.food.ordering.system.kafka.order.avro.model.RestaurantOrderStatus
+                .setRestaurantOrderStatus(org.food.ordering.kafka.order.avro.model.RestaurantOrderStatus
                         .valueOf(order.getOrderStatus().name()))
                 .setProducts(order.getItems().stream().map(orderItem ->
-                        com.food.ordering.system.kafka.order.avro.model.Product.newBuilder()
+                        org.food.ordering.kafka.order.avro.model.Product.newBuilder()
                                 .setId(orderItem.getProduct().getId().getValue().toString())
                                 .setQuantity(orderItem.getQuantity())
                                 .build()).collect(Collectors.toList()))
@@ -73,7 +73,7 @@ public class OrderMessagingDataMapper {
                 .orderId(paymentResponseAvroModel.getOrderId())
                 .price(paymentResponseAvroModel.getPrice())
                 .createdAt(paymentResponseAvroModel.getCreatedAt())
-                .paymentStatus(com.food.ordering.system.domain.valueobject.PaymentStatus.valueOf(
+                .paymentStatus(org.food.ordering.domain.valueobject.PaymentStatus.valueOf(
                         paymentResponseAvroModel.getPaymentStatus().name()))
                 .failureMessages(paymentResponseAvroModel.getFailureMessages())
                 .build();
@@ -88,7 +88,7 @@ public class OrderMessagingDataMapper {
                 .restaurantId(restaurantApprovalResponseAvroModel.getRestaurantId())
                 .orderId(restaurantApprovalResponseAvroModel.getOrderId())
                 .createdAt(restaurantApprovalResponseAvroModel.getCreatedAt())
-                .orderApprovalStatus(com.food.ordering.system.domain.valueobject.OrderApprovalStatus.valueOf(
+                .orderApprovalStatus(org.food.ordering.domain.valueobject.OrderApprovalStatus.valueOf(
                         restaurantApprovalResponseAvroModel.getOrderApprovalStatus().name()))
                 .failureMessages(restaurantApprovalResponseAvroModel.getFailureMessages())
                 .build();

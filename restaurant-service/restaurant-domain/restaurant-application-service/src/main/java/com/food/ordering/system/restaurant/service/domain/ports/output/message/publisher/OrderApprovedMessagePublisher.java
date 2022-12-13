@@ -1,7 +1,7 @@
-package com.food.ordering.system.restaurant.service.domain.ports.output.message.publisher;
+package org.food.ordering.restaurant.service.domain.ports.output.message.publisher;
 
-import com.food.ordering.system.domain.event.publisher.DomainEventPublisher;
-import com.food.ordering.system.restaurant.service.domain.event.OrderApprovedEvent;
+import org.food.ordering.domain.event.publisher.DomainEventPublisher;
+import org.food.ordering.restaurant.service.domain.event.OrderApprovedEvent;
 
 public interface OrderApprovedMessagePublisher extends DomainEventPublisher<OrderApprovedEvent> {
 }
