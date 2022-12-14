@@ -1,15 +1,15 @@
-package org.food.ordering.order.service.domain.mapper;
+package com.food.ordering.system.order.service.domain.mapper;
 
-import org.food.ordering.domain.valueobject.*;
-import org.food.ordering.order.service.domain.dto.create.CreateOrderCommand;
-import org.food.ordering.order.service.domain.dto.create.CreateOrderResponse;
-import org.food.ordering.order.service.domain.dto.create.OrderAddress;
-import org.food.ordering.order.service.domain.dto.track.TrackOrderResponse;
-import org.food.ordering.order.service.domain.entity.Order;
-import org.food.ordering.order.service.domain.entity.OrderItem;
-import org.food.ordering.order.service.domain.entity.Product;
-import org.food.ordering.order.service.domain.entity.Restaurant;
-import org.food.ordering.order.service.domain.valueobject.StreetAddress;
+import com.food.ordering.system.domain.valueobject.*;
+import com.food.ordering.system.order.service.domain.dto.create.CreateOrderCommand;
+import com.food.ordering.system.order.service.domain.dto.create.CreateOrderResponse;
+import com.food.ordering.system.order.service.domain.dto.create.OrderAddress;
+import com.food.ordering.system.order.service.domain.dto.track.TrackOrderResponse;
+import com.food.ordering.system.order.service.domain.entity.Order;
+import com.food.ordering.system.order.service.domain.entity.OrderItem;
+import com.food.ordering.system.order.service.domain.entity.Product;
+import com.food.ordering.system.order.service.domain.entity.Restaurant;
+import com.food.ordering.system.order.service.domain.valueobject.StreetAddress;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -55,7 +55,7 @@ public class OrderDataMapper {
     }
 
     private List<OrderItem> orderItemsToOrderItemEntities(
-            List<org.food.ordering.order.service.domain.dto.create.OrderItem> orderItems) {
+            List<com.food.ordering.system.order.service.domain.dto.create.OrderItem> orderItems) {
         return orderItems.stream()
                 .map(orderItem ->
                         OrderItem.builder()

@@ -1,6 +1,6 @@
-package org.food.ordering.payment.service.domain.dto;
+package com.food.ordering.system.payment.service.domain.dto;
 
-import org.food.ordering.domain.valueobject.PaymentOrderStatus;
+import com.food.ordering.system.domain.valueobject.PaymentOrderStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

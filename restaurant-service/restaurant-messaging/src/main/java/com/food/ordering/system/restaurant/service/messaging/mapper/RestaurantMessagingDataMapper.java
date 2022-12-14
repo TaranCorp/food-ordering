@@ -1,14 +1,14 @@
-package org.food.ordering.restaurant.service.messaging.mapper;
+package com.food.ordering.system.restaurant.service.messaging.mapper;
 
-import org.food.ordering.domain.valueobject.ProductId;
-import org.food.ordering.domain.valueobject.RestaurantOrderStatus;
-import org.food.ordering.kafka.order.avro.model.OrderApprovalStatus;
-import org.food.ordering.kafka.order.avro.model.RestaurantApprovalRequestAvroModel;
-import org.food.ordering.kafka.order.avro.model.RestaurantApprovalResponseAvroModel;
-import org.food.ordering.restaurant.service.domain.dto.RestaurantApprovalRequest;
-import org.food.ordering.restaurant.service.domain.entity.Product;
-import org.food.ordering.restaurant.service.domain.event.OrderApprovedEvent;
-import org.food.ordering.restaurant.service.domain.event.OrderRejectedEvent;
+import com.food.ordering.system.domain.valueobject.ProductId;
+import com.food.ordering.system.domain.valueobject.RestaurantOrderStatus;
+import com.food.ordering.system.kafka.order.avro.model.OrderApprovalStatus;
+import com.food.ordering.system.kafka.order.avro.model.RestaurantApprovalRequestAvroModel;
+import com.food.ordering.system.kafka.order.avro.model.RestaurantApprovalResponseAvroModel;
+import com.food.ordering.system.restaurant.service.domain.dto.RestaurantApprovalRequest;
+import com.food.ordering.system.restaurant.service.domain.entity.Product;
+import com.food.ordering.system.restaurant.service.domain.event.OrderApprovedEvent;
+import com.food.ordering.system.restaurant.service.domain.event.OrderRejectedEvent;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;

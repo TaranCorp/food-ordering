@@ -1,4 +1,4 @@
-package org.food.ordering.domain;
+package com.food.ordering.system.domain;
 
 public class DomainConstants {
 

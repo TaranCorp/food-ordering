@@ -1,8 +1,8 @@
-package org.food.ordering.order.service.domain.ports.output.repository;
+package com.food.ordering.system.order.service.domain.ports.output.repository;
 
-import org.food.ordering.domain.valueobject.OrderId;
-import org.food.ordering.order.service.domain.entity.Order;
-import org.food.ordering.order.service.domain.valueobject.TrackingId;
+import com.food.ordering.system.domain.valueobject.OrderId;
+import com.food.ordering.system.order.service.domain.entity.Order;
+import com.food.ordering.system.order.service.domain.valueobject.TrackingId;
 
 import java.util.Optional;
 

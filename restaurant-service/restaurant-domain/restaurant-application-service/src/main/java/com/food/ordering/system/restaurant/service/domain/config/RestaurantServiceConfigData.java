@@ -1,4 +1,4 @@
-package org.food.ordering.restaurant.service.domain.config;
+package com.food.ordering.system.restaurant.service.domain.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

@@ -1,11 +1,11 @@
-package org.food.ordering.order.service.dataaccess.order.adapter;
+package com.food.ordering.system.order.service.dataaccess.order.adapter;
 
-import org.food.ordering.domain.valueobject.OrderId;
-import org.food.ordering.order.service.dataaccess.order.mapper.OrderDataAccessMapper;
-import org.food.ordering.order.service.dataaccess.order.repository.OrderJpaRepository;
-import org.food.ordering.order.service.domain.entity.Order;
-import org.food.ordering.order.service.domain.ports.output.repository.OrderRepository;
-import org.food.ordering.order.service.domain.valueobject.TrackingId;
+import com.food.ordering.system.domain.valueobject.OrderId;
+import com.food.ordering.system.order.service.dataaccess.order.mapper.OrderDataAccessMapper;
+import com.food.ordering.system.order.service.dataaccess.order.repository.OrderJpaRepository;
+import com.food.ordering.system.order.service.domain.entity.Order;
+import com.food.ordering.system.order.service.domain.ports.output.repository.OrderRepository;
+import com.food.ordering.system.order.service.domain.valueobject.TrackingId;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;

@@ -1,7 +1,7 @@
-package org.food.ordering.restaurant.service.domain.ports.output.message.publisher;
+package com.food.ordering.system.restaurant.service.domain.ports.output.message.publisher;
 
-import org.food.ordering.domain.event.publisher.DomainEventPublisher;
-import org.food.ordering.restaurant.service.domain.event.OrderRejectedEvent;
+import com.food.ordering.system.domain.event.publisher.DomainEventPublisher;
+import com.food.ordering.system.restaurant.service.domain.event.OrderRejectedEvent;
 
 public interface OrderRejectedMessagePublisher extends DomainEventPublisher<OrderRejectedEvent> {
 }

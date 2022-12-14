@@ -1,8 +1,8 @@
-package org.food.ordering.payment.service.domain;
+package com.food.ordering.system.payment.service.domain;
 
-import org.food.ordering.payment.service.domain.dto.PaymentRequest;
-import org.food.ordering.payment.service.domain.event.PaymentEvent;
-import org.food.ordering.payment.service.domain.ports.input.message.listener.PaymentRequestMessageListener;
+import com.food.ordering.system.payment.service.domain.dto.PaymentRequest;
+import com.food.ordering.system.payment.service.domain.event.PaymentEvent;
+import com.food.ordering.system.payment.service.domain.ports.input.message.listener.PaymentRequestMessageListener;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

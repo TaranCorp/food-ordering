@@ -1,4 +1,4 @@
-package org.food.ordering.payment.service.dataaccess.creditentry.exception;
+package com.food.ordering.system.payment.service.dataaccess.creditentry.exception;
 
 public class CreditEntryDataaccessException extends RuntimeException {
 

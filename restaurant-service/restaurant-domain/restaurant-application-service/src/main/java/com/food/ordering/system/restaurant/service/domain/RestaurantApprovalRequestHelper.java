@@ -1,15 +1,15 @@
-package org.food.ordering.restaurant.service.domain;
+package com.food.ordering.system.restaurant.service.domain;
 
-import org.food.ordering.domain.valueobject.OrderId;
-import org.food.ordering.restaurant.service.domain.dto.RestaurantApprovalRequest;
-import org.food.ordering.restaurant.service.domain.entity.Restaurant;
-import org.food.ordering.restaurant.service.domain.event.OrderApprovalEvent;
-import org.food.ordering.restaurant.service.domain.exception.RestaurantNotFoundException;
-import org.food.ordering.restaurant.service.domain.mapper.RestaurantDataMapper;
-import org.food.ordering.restaurant.service.domain.ports.output.message.publisher.OrderApprovedMessagePublisher;
-import org.food.ordering.restaurant.service.domain.ports.output.message.publisher.OrderRejectedMessagePublisher;
-import org.food.ordering.restaurant.service.domain.ports.output.repository.OrderApprovalRepository;
-import org.food.ordering.restaurant.service.domain.ports.output.repository.RestaurantRepository;
+import com.food.ordering.system.domain.valueobject.OrderId;
+import com.food.ordering.system.restaurant.service.domain.dto.RestaurantApprovalRequest;
+import com.food.ordering.system.restaurant.service.domain.entity.Restaurant;
+import com.food.ordering.system.restaurant.service.domain.event.OrderApprovalEvent;
+import com.food.ordering.system.restaurant.service.domain.exception.RestaurantNotFoundException;
+import com.food.ordering.system.restaurant.service.domain.mapper.RestaurantDataMapper;
+import com.food.ordering.system.restaurant.service.domain.ports.output.message.publisher.OrderApprovedMessagePublisher;
+import com.food.ordering.system.restaurant.service.domain.ports.output.message.publisher.OrderRejectedMessagePublisher;
+import com.food.ordering.system.restaurant.service.domain.ports.output.repository.OrderApprovalRepository;
+import com.food.ordering.system.restaurant.service.domain.ports.output.repository.RestaurantRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;

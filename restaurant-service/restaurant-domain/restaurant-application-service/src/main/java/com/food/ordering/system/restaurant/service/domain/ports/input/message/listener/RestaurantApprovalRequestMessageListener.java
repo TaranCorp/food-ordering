@@ -1,6 +1,6 @@
-package org.food.ordering.restaurant.service.domain.ports.input.message.listener;
+package com.food.ordering.system.restaurant.service.domain.ports.input.message.listener;
 
-import org.food.ordering.restaurant.service.domain.dto.RestaurantApprovalRequest;
+import com.food.ordering.system.restaurant.service.domain.dto.RestaurantApprovalRequest;
 
 public interface RestaurantApprovalRequestMessageListener {
     void approveOrder(RestaurantApprovalRequest restaurantApprovalRequest);

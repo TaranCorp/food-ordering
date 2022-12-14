@@ -1,13 +1,13 @@
-package org.food.ordering.restaurant.service.domain.mapper;
+package com.food.ordering.system.restaurant.service.domain.mapper;
 
-import org.food.ordering.domain.valueobject.Money;
-import org.food.ordering.domain.valueobject.OrderId;
-import org.food.ordering.domain.valueobject.OrderStatus;
-import org.food.ordering.domain.valueobject.RestaurantId;
-import org.food.ordering.restaurant.service.domain.dto.RestaurantApprovalRequest;
-import org.food.ordering.restaurant.service.domain.entity.OrderDetail;
-import org.food.ordering.restaurant.service.domain.entity.Product;
-import org.food.ordering.restaurant.service.domain.entity.Restaurant;
+import com.food.ordering.system.domain.valueobject.Money;
+import com.food.ordering.system.domain.valueobject.OrderId;
+import com.food.ordering.system.domain.valueobject.OrderStatus;
+import com.food.ordering.system.domain.valueobject.RestaurantId;
+import com.food.ordering.system.restaurant.service.domain.dto.RestaurantApprovalRequest;
+import com.food.ordering.system.restaurant.service.domain.entity.OrderDetail;
+import com.food.ordering.system.restaurant.service.domain.entity.Product;
+import com.food.ordering.system.restaurant.service.domain.entity.Restaurant;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;

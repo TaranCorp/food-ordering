@@ -1,13 +1,13 @@
-package org.food.ordering.order.service.domain;
+package com.food.ordering.system.order.service.domain;
 
-import org.food.ordering.order.service.domain.dto.message.PaymentResponse;
-import org.food.ordering.order.service.domain.event.OrderPaidEvent;
-import org.food.ordering.order.service.domain.ports.input.message.listener.payment.PaymentResponseMessageListener;
+import com.food.ordering.system.order.service.domain.dto.message.PaymentResponse;
+import com.food.ordering.system.order.service.domain.event.OrderPaidEvent;
+import com.food.ordering.system.order.service.domain.ports.input.message.listener.payment.PaymentResponseMessageListener;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
-import static org.food.ordering.order.service.domain.entity.Order.FAILURE_MESSAGE_DELIMITER;
+import static com.food.ordering.system.order.service.domain.entity.Order.FAILURE_MESSAGE_DELIMITER;
 
 @Slf4j
 @Validated

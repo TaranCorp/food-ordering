@@ -1,6 +1,6 @@
-package org.food.ordering.payment.service.domain.exception;
+package com.food.ordering.system.payment.service.domain.exception;
 
-import org.food.ordering.domain.exception.DomainException;
+import com.food.ordering.system.domain.exception.DomainException;
 
 public class PaymentApplicationServiceException extends DomainException {
 

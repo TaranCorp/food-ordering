@@ -1,4 +1,4 @@
-package org.food.ordering.dataaccess.restaurant.entity;
+package com.food.ordering.system.dataaccess.restaurant.entity;
 
 import lombok.*;
 

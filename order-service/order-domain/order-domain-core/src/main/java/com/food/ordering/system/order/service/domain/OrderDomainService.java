@@ -1,11 +1,11 @@
-package org.food.ordering.order.service.domain;
+package com.food.ordering.system.order.service.domain;
 
-import org.food.ordering.domain.event.publisher.DomainEventPublisher;
-import org.food.ordering.order.service.domain.entity.Order;
-import org.food.ordering.order.service.domain.entity.Restaurant;
-import org.food.ordering.order.service.domain.event.OrderCancelledEvent;
-import org.food.ordering.order.service.domain.event.OrderCreatedEvent;
-import org.food.ordering.order.service.domain.event.OrderPaidEvent;
+import com.food.ordering.system.domain.event.publisher.DomainEventPublisher;
+import com.food.ordering.system.order.service.domain.entity.Order;
+import com.food.ordering.system.order.service.domain.entity.Restaurant;
+import com.food.ordering.system.order.service.domain.event.OrderCancelledEvent;
+import com.food.ordering.system.order.service.domain.event.OrderCreatedEvent;
+import com.food.ordering.system.order.service.domain.event.OrderPaidEvent;
 
 import java.util.List;
 

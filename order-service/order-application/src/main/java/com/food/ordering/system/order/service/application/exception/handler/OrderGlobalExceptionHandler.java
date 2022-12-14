@@ -1,9 +1,9 @@
-package org.food.ordering.order.service.application.exception.handler;
+package com.food.ordering.system.order.service.application.exception.handler;
 
-import org.food.ordering.application.handler.ErrorDTO;
-import org.food.ordering.application.handler.GlobalExceptionHandler;
-import org.food.ordering.order.service.domain.exception.OrderDomainException;
-import org.food.ordering.order.service.domain.exception.OrderNotFoundException;
+import com.food.ordering.system.application.handler.ErrorDTO;
+import com.food.ordering.system.application.handler.GlobalExceptionHandler;
+import com.food.ordering.system.order.service.domain.exception.OrderDomainException;
+import com.food.ordering.system.order.service.domain.exception.OrderNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;

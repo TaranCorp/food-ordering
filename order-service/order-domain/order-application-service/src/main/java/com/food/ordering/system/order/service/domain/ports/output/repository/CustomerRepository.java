@@ -1,6 +1,6 @@
-package org.food.ordering.order.service.domain.ports.output.repository;
+package com.food.ordering.system.order.service.domain.ports.output.repository;
 
-import org.food.ordering.order.service.domain.entity.Customer;
+import com.food.ordering.system.order.service.domain.entity.Customer;
 
 import java.util.Optional;
 import java.util.UUID;

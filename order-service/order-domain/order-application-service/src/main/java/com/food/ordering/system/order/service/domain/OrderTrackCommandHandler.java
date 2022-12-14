@@ -1,12 +1,12 @@
-package org.food.ordering.order.service.domain;
+package com.food.ordering.system.order.service.domain;
 
-import org.food.ordering.order.service.domain.dto.track.TrackOrderQuery;
-import org.food.ordering.order.service.domain.dto.track.TrackOrderResponse;
-import org.food.ordering.order.service.domain.entity.Order;
-import org.food.ordering.order.service.domain.exception.OrderNotFoundException;
-import org.food.ordering.order.service.domain.mapper.OrderDataMapper;
-import org.food.ordering.order.service.domain.ports.output.repository.OrderRepository;
-import org.food.ordering.order.service.domain.valueobject.TrackingId;
+import com.food.ordering.system.order.service.domain.dto.track.TrackOrderQuery;
+import com.food.ordering.system.order.service.domain.dto.track.TrackOrderResponse;
+import com.food.ordering.system.order.service.domain.entity.Order;
+import com.food.ordering.system.order.service.domain.exception.OrderNotFoundException;
+import com.food.ordering.system.order.service.domain.mapper.OrderDataMapper;
+import com.food.ordering.system.order.service.domain.ports.output.repository.OrderRepository;
+import com.food.ordering.system.order.service.domain.valueobject.TrackingId;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;

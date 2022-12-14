@@ -1,6 +1,6 @@
-package org.food.ordering.order.service.domain.valueobject;
+package com.food.ordering.system.order.service.domain.valueobject;
 
-import org.food.ordering.domain.valueobject.BaseId;
+import com.food.ordering.system.domain.valueobject.BaseId;
 
 public class OrderItemId extends BaseId<Long> {
     public OrderItemId(Long value) {

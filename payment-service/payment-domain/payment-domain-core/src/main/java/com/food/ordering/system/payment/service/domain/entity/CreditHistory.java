@@ -1,10 +1,10 @@
-package org.food.ordering.payment.service.domain.entity;
+package com.food.ordering.system.payment.service.domain.entity;
 
-import org.food.ordering.domain.entity.BaseEntity;
-import org.food.ordering.domain.valueobject.CustomerId;
-import org.food.ordering.domain.valueobject.Money;
-import org.food.ordering.payment.service.domain.valueobject.CreditHistoryId;
-import org.food.ordering.payment.service.domain.valueobject.TransactionType;
+import com.food.ordering.system.domain.entity.BaseEntity;
+import com.food.ordering.system.domain.valueobject.CustomerId;
+import com.food.ordering.system.domain.valueobject.Money;
+import com.food.ordering.system.payment.service.domain.valueobject.CreditHistoryId;
+import com.food.ordering.system.payment.service.domain.valueobject.TransactionType;
 
 public class CreditHistory extends BaseEntity<CreditHistoryId> {
 
