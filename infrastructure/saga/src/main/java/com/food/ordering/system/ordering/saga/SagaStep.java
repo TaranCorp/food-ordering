@@ -1,4 +1,4 @@
-package com.food.ordering.system.saga;
+package com.food.ordering.system.ordering.saga;
 
 import com.food.ordering.system.domain.event.DomainEvent;
 
