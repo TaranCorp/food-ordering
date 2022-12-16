@@ -10,6 +10,7 @@ import com.food.ordering.system.order.service.domain.entity.Order;
 import com.food.ordering.system.order.service.domain.entity.OrderItem;
 import com.food.ordering.system.order.service.domain.entity.Product;
 import com.food.ordering.system.order.service.domain.entity.Restaurant;
+import com.food.ordering.system.order.service.domain.event.OrderCancelledEvent;
 import com.food.ordering.system.order.service.domain.event.OrderCreatedEvent;
 import com.food.ordering.system.order.service.domain.event.OrderPaidEvent;
 import com.food.ordering.system.order.service.domain.outbox.model.approval.OrderApprovalEventPayload;
@@ -17,6 +18,7 @@ import com.food.ordering.system.order.service.domain.outbox.model.approval.Order
 import com.food.ordering.system.order.service.domain.outbox.model.payment.OrderPaymentEventPayload;
 import com.food.ordering.system.order.service.domain.valueobject.StreetAddress;
 import org.springframework.stereotype.Component;
+import org.springframework.util.Assert;
 
 import java.util.List;
 import java.util.UUID;
@@ -107,6 +109,18 @@ public class OrderDataMapper {
                             )
                         )
                         .toList())
+                .build();
+    }
+
+    public OrderPaymentEventPayload orderPaymentEventPayloadFromOrderCancelledEvent(OrderCancelledEvent orderCancelledEvent) {
+        final Order order = orderCancelledEvent.getOrder();
+        Assert.notNull(order, "OrderCancelledEvent is null");
+        return OrderPaymentEventPayload.builder()
+                .orderId(extractId(order.getId()))
+                .customerId(extractId(order.getCustomerId()))
+                .price(order.getPrice().getAmount())
+                .createdAt(orderCancelledEvent.getCreatedAt())
+                .paymentOrderStatus(PaymentOrderStatus.CANCELLED.name())
                 .build();
     }
 }

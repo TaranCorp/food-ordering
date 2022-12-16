@@ -114,8 +114,8 @@ public class OrderPaymentSaga implements SagaStep<PaymentResponse> {
                     paymentOutboxHelper.save(
                             getUpdatedPaymentOutboxMessage(
                                     outboxMessage,
-                                    outboxMessage.getOrderStatus(),
-                                    outboxMessage.getSagaStatus()
+                                    order.getOrderStatus(),
+                                    orderSagaHelper.sagaStatusFromOrderStatus(order.getOrderStatus())
                             )
                     );
 
@@ -124,7 +124,7 @@ public class OrderPaymentSaga implements SagaStep<PaymentResponse> {
                                 getUpdatedOrderApprovalOutboxMessage(
                                         paymentResponse.getSagaId(),
                                         order.getOrderStatus(),
-                                        outboxMessage.getSagaStatus())
+                                        orderSagaHelper.sagaStatusFromOrderStatus(order.getOrderStatus()))
                         );
                     }
 
@@ -135,7 +135,7 @@ public class OrderPaymentSaga implements SagaStep<PaymentResponse> {
     }
 
     private OrderApprovalOutboxMessage getUpdatedOrderApprovalOutboxMessage(String sagaId, OrderStatus orderStatus, SagaStatus sagaStatus) {
-        return approvalOutboxHelper.getApprovalOutboxMessages(
+        return approvalOutboxHelper.getApprovalOutboxMessage(
                 UUID.fromString(sagaId),
                 SagaStatus.COMPENSATING
         ).map(

@@ -3,6 +3,7 @@ package com.food.ordering.system.order.service.domain.outbox.scheduler.payment;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.json.JsonMapper;
+import com.food.ordering.system.domain.valueobject.OrderStatus;
 import com.food.ordering.system.order.service.domain.exception.OrderDomainException;
 import com.food.ordering.system.order.service.domain.mapper.ObjectMapperHelper;
 import com.food.ordering.system.order.service.domain.outbox.dto.PaymentOutboxPersistDto;
@@ -17,9 +18,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+
+import static com.food.ordering.system.domain.DomainConstants.UTC;
 
 @Component
 public class PaymentOutboxHelper {
@@ -77,5 +82,32 @@ public class PaymentOutboxHelper {
     @Transactional
     public void deleteByTypeAndOutboxStatusAndSagaStatus(OutboxStatus outboxStatus, SagaStatus... sagaStatus) {
         paymentOutboxRepository.deleteByTypeAndOutboxStatusAndSagaStatus(SagaConstants.ORDER_SAGA_NAME, outboxStatus, sagaStatus);
+    }
+
+    @Transactional
+    public void saveUpdatedPaymentOutboxMessage(String sagaId, OrderStatus orderStatus, SagaStatus sagaStatus) {
+        save(getPaymentOutboxMessage(sagaId, orderStatus, sagaStatus));
+    }
+
+    private OrderPaymentOutboxMessage getPaymentOutboxMessage(String sagaId, OrderStatus orderStatus, SagaStatus sagaStatus) {
+        return getOptionalPaymentOutboxMessage(sagaId, sagaStatus)
+                .map(approvalMessage -> updatedPaymentOutboxMessage(approvalMessage, orderStatus, sagaStatus))
+                .orElseThrow(this::getNotFoundPaymentOutboxMessage);
+    }
+
+    private Optional<OrderPaymentOutboxMessage> getOptionalPaymentOutboxMessage(String sagaId, SagaStatus sagaStatus) {
+        return getPaymentOutboxMessage(UUID.fromString(sagaId), sagaStatus);
+    }
+
+    private OrderPaymentOutboxMessage updatedPaymentOutboxMessage(OrderPaymentOutboxMessage approvalMessage, OrderStatus orderStatus, SagaStatus sagaStatus) {
+        approvalMessage.setProcessedAt(ZonedDateTime.now(ZoneId.of(UTC)));
+        approvalMessage.setOrderStatus(orderStatus);
+        approvalMessage.setSagaStatus(sagaStatus);
+        return approvalMessage;
+    }
+
+
+    private OrderDomainException getNotFoundPaymentOutboxMessage() {
+        return new OrderDomainException("Payment outbox message not found in %s state".formatted(SagaStatus.PROCESSING.name()));
     }
 }

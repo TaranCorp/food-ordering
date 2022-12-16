@@ -1,5 +1,6 @@
 package com.food.ordering.system.order.service.domain.outbox.scheduler.approval;
 
+import com.food.ordering.system.domain.valueobject.OrderStatus;
 import com.food.ordering.system.order.service.domain.exception.OrderDomainException;
 import com.food.ordering.system.order.service.domain.mapper.ObjectMapperHelper;
 import com.food.ordering.system.order.service.domain.outbox.dto.OrderApprovalOutboxPersistDto;
@@ -13,9 +14,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+
+import static com.food.ordering.system.domain.DomainConstants.UTC;
 
 @Component
 public class ApprovalOutboxHelper {
@@ -36,7 +41,7 @@ public class ApprovalOutboxHelper {
     }
 
     @Transactional(readOnly = true)
-    public Optional<OrderApprovalOutboxMessage> getApprovalOutboxMessages(UUID sagaId, SagaStatus... sagaStatus) {
+    public Optional<OrderApprovalOutboxMessage> getApprovalOutboxMessage(UUID sagaId, SagaStatus... sagaStatus) {
         return approvalOutboxRepository.findByTypeAndSagaIdAndSagaStatus(SagaConstants.ORDER_SAGA_NAME, sagaId, sagaStatus);
     }
 
@@ -70,5 +75,22 @@ public class ApprovalOutboxHelper {
                         .sagaId(persistDto.sagaId())
                         .build()
         );
+    }
+
+    @Transactional
+    public void saveUpdatedApprovalOutboxMessage(OrderApprovalOutboxMessage approvalMessage, OrderStatus orderStatus, SagaStatus sagaStatus) {
+        save(getUpdatedOrderApprovalOutboxMessage(
+                approvalMessage,
+                orderStatus,
+                sagaStatus
+            )
+        );
+    }
+
+    private OrderApprovalOutboxMessage getUpdatedOrderApprovalOutboxMessage(OrderApprovalOutboxMessage approvalMessage, OrderStatus orderStatus, SagaStatus sagaStatus) {
+        approvalMessage.setOrderStatus(orderStatus);
+        approvalMessage.setSagaStatus(sagaStatus);
+        approvalMessage.setProcessedAt(ZonedDateTime.now(ZoneId.of(UTC)));
+        return approvalMessage;
     }
 }
