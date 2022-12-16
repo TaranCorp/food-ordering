@@ -27,21 +27,15 @@ public class RestaurantApprovalRequestHelper {
     private final RestaurantDataMapper restaurantDataMapper;
     private final RestaurantRepository restaurantRepository;
     private final OrderApprovalRepository orderApprovalRepository;
-    private final OrderApprovedMessagePublisher orderApprovedMessagePublisher;
-    private final OrderRejectedMessagePublisher orderRejectedMessagePublisher;
 
     public RestaurantApprovalRequestHelper(RestaurantDomainService restaurantDomainService,
                                            RestaurantDataMapper restaurantDataMapper,
                                            RestaurantRepository restaurantRepository,
-                                           OrderApprovalRepository orderApprovalRepository,
-                                           OrderApprovedMessagePublisher orderApprovedMessagePublisher,
-                                           OrderRejectedMessagePublisher orderRejectedMessagePublisher) {
+                                           OrderApprovalRepository orderApprovalRepository) {
         this.restaurantDomainService = restaurantDomainService;
         this.restaurantDataMapper = restaurantDataMapper;
         this.restaurantRepository = restaurantRepository;
         this.orderApprovalRepository = orderApprovalRepository;
-        this.orderApprovedMessagePublisher = orderApprovedMessagePublisher;
-        this.orderRejectedMessagePublisher = orderRejectedMessagePublisher;
     }
 
     @Transactional
@@ -52,9 +46,7 @@ public class RestaurantApprovalRequestHelper {
         OrderApprovalEvent orderApprovalEvent =
                 restaurantDomainService.validateOrder(
                         restaurant,
-                        failureMessages,
-                        orderApprovedMessagePublisher,
-                        orderRejectedMessagePublisher);
+                        failureMessages);
         orderApprovalRepository.save(restaurant.getOrderApproval());
         return orderApprovalEvent;
     }
