@@ -41,13 +41,13 @@ public class PaymentFailedKafkaMessagePublisher implements PaymentFailedMessageP
             PaymentResponseAvroModel paymentResponseAvroModel =
                     paymentMessagingDataMapper.paymentFailedEventToPaymentResponseAvroModel(domainEvent);
 
-            kafkaProducer.send(paymentServiceConfigData.getPaymentResponseTopicName(),
-                    orderId,
-                    paymentResponseAvroModel,
-                    kafkaMessageHelper.getKafkaCallback(paymentServiceConfigData.getPaymentResponseTopicName(),
-                            paymentResponseAvroModel,
-                            orderId,
-                            "PaymentResponseAvroModel"));
+//            kafkaProducer.send(paymentServiceConfigData.getPaymentResponseTopicName(), // fixme
+//                    orderId,
+//                    paymentResponseAvroModel,
+//                    kafkaMessageHelper.getKafkaCallback(paymentServiceConfigData.getPaymentResponseTopicName(),
+//                            paymentResponseAvroModel,
+//                            orderId,
+//                            "PaymentResponseAvroModel"));
 
             log.info("PaymentResponseAvroModel sent to kafka for order id: {}", orderId);
         } catch (Exception e) {

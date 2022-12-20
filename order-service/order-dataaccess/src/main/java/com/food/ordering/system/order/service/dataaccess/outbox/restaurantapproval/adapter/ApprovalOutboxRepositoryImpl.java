@@ -5,8 +5,8 @@ import com.food.ordering.system.order.service.dataaccess.outbox.restaurantapprov
 import com.food.ordering.system.order.service.dataaccess.outbox.restaurantapproval.repository.ApprovalOutboxJpaRepository;
 import com.food.ordering.system.order.service.domain.outbox.model.approval.OrderApprovalOutboxMessage;
 import com.food.ordering.system.order.service.domain.ports.output.repository.ApprovalOutboxRepository;
-import com.food.ordering.system.outbox.OutboxStatus;
-import com.food.ordering.system.saga.SagaStatus;
+import com.food.ordering.system.ordering.outbox.OutboxStatus;
+import com.food.ordering.system.ordering.saga.SagaStatus;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -36,7 +36,7 @@ public class ApprovalOutboxRepositoryImpl implements ApprovalOutboxRepository {
     }
 
     @Override
-    public Optional<List<OrderApprovalOutboxMessage>> findByTypeAndOutboxStatusAndSagaStatus(String sagaType,
+    public List<OrderApprovalOutboxMessage> findByTypeAndOutboxStatusAndSagaStatus(String sagaType,
                                                                                        OutboxStatus outboxStatus,
                                                                        SagaStatus... sagaStatus) {
         return Optional.of(approvalOutboxJpaRepository.findByTypeAndOutboxStatusAndSagaStatusIn(sagaType, outboxStatus,
@@ -45,7 +45,7 @@ public class ApprovalOutboxRepositoryImpl implements ApprovalOutboxRepository {
                         "could be found for saga type " + sagaType))
                 .stream()
                 .map(approvalOutboxDataAccessMapper::approvalOutboxEntityToOrderApprovalOutboxMessage)
-                .collect(Collectors.toList()));
+                .collect(Collectors.toList())).get();
     }
 
     @Override

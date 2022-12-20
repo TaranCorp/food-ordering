@@ -41,13 +41,13 @@ public class PaymentCancelledKafkaMessagePublisher implements PaymentCancelledMe
             PaymentResponseAvroModel paymentResponseAvroModel =
                     paymentMessagingDataMapper.paymentCancelledEventToPaymentResponseAvroModel(domainEvent);
 
-            kafkaProducer.send(paymentServiceConfigData.getPaymentResponseTopicName(),
-                    orderId,
-                    paymentResponseAvroModel,
-                    kafkaMessageHelper.getKafkaCallback(paymentServiceConfigData.getPaymentResponseTopicName(),
-                            paymentResponseAvroModel,
-                            orderId,
-                            "PaymentResponseAvroModel"));
+//            kafkaProducer.send(paymentServiceConfigData.getPaymentResponseTopicName(), fixme
+//                    orderId,
+//                    paymentResponseAvroModel,
+//                    kafkaMessageHelper.getKafkaCallback(paymentServiceConfigData.getPaymentResponseTopicName(),
+//                            paymentResponseAvroModel,
+//                            orderId,
+//                            "PaymentResponseAvroModel"));
 
             log.info("PaymentResponseAvroModel sent to kafka for order id: {}", orderId);
         } catch (Exception e) {

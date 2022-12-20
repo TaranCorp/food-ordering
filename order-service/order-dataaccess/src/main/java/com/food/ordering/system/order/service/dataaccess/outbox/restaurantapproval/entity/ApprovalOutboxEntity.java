@@ -1,11 +1,20 @@
 package com.food.ordering.system.order.service.dataaccess.outbox.restaurantapproval.entity;
 
 import com.food.ordering.system.domain.valueobject.OrderStatus;
-import com.food.ordering.system.outbox.OutboxStatus;
-import com.food.ordering.system.saga.SagaStatus;
-import lombok.*;
+import com.food.ordering.system.ordering.outbox.OutboxStatus;
+import com.food.ordering.system.ordering.saga.SagaStatus;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Version;
 import java.time.ZonedDateTime;
 import java.util.Objects;
 import java.util.UUID;
