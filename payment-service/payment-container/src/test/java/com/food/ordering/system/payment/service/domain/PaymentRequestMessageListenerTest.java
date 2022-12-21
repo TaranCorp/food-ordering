@@ -54,6 +54,34 @@ public class PaymentRequestMessageListenerTest {
         assertOrderOutbox(sagaId);
     }
 
+    @Test
+    void testDoublePaymentWithThreads() throws InterruptedException {
+        final String sagaId = UUID.randomUUID().toString();
+        final Thread thread1 = new Thread(() -> {
+            try {
+                paymentRequestMessageListener.completePayment(getPaymentRequest(sagaId));
+            } catch (DataAccessException e) {
+                log.error("DataAccessException occurred for thread 1 with sql state: {}",
+                        ((PSQLException) Objects.requireNonNull(e.getRootCause())).getSQLState());
+            }
+        });
+        final Thread thread2 = new Thread(() -> {
+            try {
+                paymentRequestMessageListener.completePayment(getPaymentRequest(sagaId));
+            } catch (DataAccessException e) {
+                log.error("DataAccessException occurred for thread 2 with sql state: {}",
+                        ((PSQLException) Objects.requireNonNull(e.getRootCause())).getSQLState());
+            }
+        });
+
+        thread1.start();
+        thread2.start();
+
+        thread1.join();
+        thread2.join();
+
+        assertOrderOutbox(sagaId);
+    }
 
     private void assertOrderOutbox(String sagaId) {
         Optional<OrderOutboxEntity> orderOutboxEntity = orderOutboxJpaRepository
