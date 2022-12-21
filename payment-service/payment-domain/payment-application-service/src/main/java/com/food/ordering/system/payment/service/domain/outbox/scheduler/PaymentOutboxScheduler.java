@@ -27,19 +27,19 @@ public class PaymentOutboxScheduler implements OutboxScheduler {
 
     @Override
     @Transactional
-    @Scheduled(fixedDelayString = "${outbox-scheduler-fixed-rate}",
-            initialDelayString = "${outbox-scheduler-initial-delay}")
+    @Scheduled(fixedDelayString = "${payment-service.outbox-scheduler-fixed-rate}",
+            initialDelayString = "${payment-service.outbox-scheduler-initial-delay}")
     public void processOutboxMessage() {
-        List<OrderOutboxMessage> orderOutboxMessages = outboxHelper.getByOutboxStatus(OutboxStatus.STARTED);
+        List<OrderOutboxMessage> orderOutboxMessages = outboxHelper.getOrderOutboxMessageByOutboxStatus(OutboxStatus.STARTED).get();
 
         if (!orderOutboxMessages.isEmpty()) {
             log.info("Received %s OrderOutboxMessages with ids %s, sending to kafka".formatted(
                     orderOutboxMessages.size(),
-                    orderOutboxMessages.stream().map(OrderOutboxMessage::id).toList()
+                    orderOutboxMessages.stream().map(OrderOutboxMessage::getId).toList()
             ));
             orderOutboxMessages.forEach(orderOutboxMessage -> publisher.publish(
                     orderOutboxMessage,
-                    outboxHelper.getOutboxCallback()
+                    outboxHelper::updateOutboxMessage
             ));
             log.info("{} PaymentOutboxMessages sent to kafka", orderOutboxMessages.size());
         }

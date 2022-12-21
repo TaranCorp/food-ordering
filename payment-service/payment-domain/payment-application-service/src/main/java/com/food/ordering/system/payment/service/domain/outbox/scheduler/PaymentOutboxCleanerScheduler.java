@@ -25,10 +25,10 @@ class PaymentOutboxCleanerScheduler implements OutboxScheduler {
     @Transactional
     @Scheduled(cron = "@midnight")
     public void processOutboxMessage() {
-        final List<OrderOutboxMessage> outboxMessages = outboxHelper.getByOutboxStatus(OutboxStatus.COMPLETED);
+        final List<OrderOutboxMessage> outboxMessages = outboxHelper.getOrderOutboxMessageByOutboxStatus(OutboxStatus.COMPLETED).get();
         if (!outboxMessages.isEmpty()) {
             log.info("{} PaymentOutboxMessages with outbox status COMPLETED, deleting", outboxMessages.size());
-            outboxHelper.deleteByOutboxStatus(OutboxStatus.COMPLETED);
+            outboxHelper.deleteOrderOutboxMessageByOutboxStatus(OutboxStatus.COMPLETED);
         }
     }
 }

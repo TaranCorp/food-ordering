@@ -11,14 +11,11 @@ import java.util.UUID;
 public interface OrderOutboxRepository {
     OrderOutboxMessage save(OrderOutboxMessage orderOutboxMessage);
 
-    List<OrderOutboxMessage> findByTypeAndOutboxStatus(String type, OutboxStatus outboxStatus);
+    Optional<List<OrderOutboxMessage>> findByTypeAndOutboxStatus(String type, OutboxStatus status);
 
-    Optional<OrderOutboxMessage> findByTypeAndSagaIdAndPaymentStatusAndOutboxStatus(
-            String type,
-            UUID sagaId,
-            PaymentStatus paymentStatus,
-            OutboxStatus outboxStatus
-    );
-
-    void deleteByTypeAndOutboxStatus(String type, OutboxStatus outboxStatus);
+    Optional<OrderOutboxMessage> findByTypeAndSagaIdAndPaymentStatusAndOutboxStatus(String type,
+                                                                                    UUID sagaId,
+                                                                                    PaymentStatus paymentStatus,
+                                                                                    OutboxStatus outboxStatus);
+    void deleteByTypeAndOutboxStatus(String type, OutboxStatus status);
 }
