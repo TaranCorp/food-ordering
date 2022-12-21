@@ -56,7 +56,7 @@ create table payment.order_outbox (
     id uuid not null primary key,
     saga_id uuid not null,
     created_at timestamp with time zone not null,
-    processed_ad timestamp with time zone,
+    processed_at timestamp with time zone,
     type character varying collate pg_catalog.default not null,
     payload jsonb not null,
     outbox_status outbox_status not null,
