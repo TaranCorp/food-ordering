@@ -14,4 +14,5 @@ public class OrderApprovedEvent extends OrderApprovalEvent {
                               ZonedDateTime createdAt) {
         super(orderApproval, restaurantId, failureMessages, createdAt);
     }
+
 }

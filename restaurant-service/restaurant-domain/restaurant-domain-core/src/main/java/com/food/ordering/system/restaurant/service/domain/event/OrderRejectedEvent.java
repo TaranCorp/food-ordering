@@ -12,6 +12,7 @@ public class OrderRejectedEvent extends OrderApprovalEvent {
                               RestaurantId restaurantId,
                               List<String> failureMessages,
                               ZonedDateTime createdAt) {
-        super(orderApproval, restaurantId, failureMessages, createdAt);;
+        super(orderApproval, restaurantId, failureMessages, createdAt);
     }
+
 }
