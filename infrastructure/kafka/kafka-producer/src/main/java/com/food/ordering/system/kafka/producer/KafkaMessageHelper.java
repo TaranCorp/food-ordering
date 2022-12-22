@@ -62,6 +62,9 @@ public class KafkaMessageHelper {
             final String errorMsg = "There was an error while parsing %s".formatted(type.getSimpleName());
             log.error(errorMsg);
             throw new OrderDomainException(errorMsg, e);
+        } catch (Exception e) {
+            log.error("WRONG LONG", e);
+            throw new OrderDomainException(e.getMessage());
         }
     }
 }

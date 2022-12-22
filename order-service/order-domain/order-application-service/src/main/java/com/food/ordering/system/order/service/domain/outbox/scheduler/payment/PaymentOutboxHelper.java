@@ -90,13 +90,13 @@ public class PaymentOutboxHelper {
     }
 
     private OrderPaymentOutboxMessage getPaymentOutboxMessage(String sagaId, OrderStatus orderStatus, SagaStatus sagaStatus) {
-        return getOptionalPaymentOutboxMessage(sagaId, sagaStatus)
+        return getOptionalPaymentOutboxMessage(sagaId)
                 .map(approvalMessage -> updatedPaymentOutboxMessage(approvalMessage, orderStatus, sagaStatus))
                 .orElseThrow(this::getNotFoundPaymentOutboxMessage);
     }
 
-    private Optional<OrderPaymentOutboxMessage> getOptionalPaymentOutboxMessage(String sagaId, SagaStatus sagaStatus) {
-        return getPaymentOutboxMessage(UUID.fromString(sagaId), sagaStatus);
+    private Optional<OrderPaymentOutboxMessage> getOptionalPaymentOutboxMessage(String sagaId) {
+        return getPaymentOutboxMessage(UUID.fromString(sagaId), SagaStatus.PROCESSING);
     }
 
     private OrderPaymentOutboxMessage updatedPaymentOutboxMessage(OrderPaymentOutboxMessage approvalMessage, OrderStatus orderStatus, SagaStatus sagaStatus) {

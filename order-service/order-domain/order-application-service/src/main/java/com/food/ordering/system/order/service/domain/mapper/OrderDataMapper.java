@@ -104,7 +104,8 @@ public class OrderDataMapper {
                 .createdAt(domainEvent.getCreatedAt())
                 .products(domainEvent.getOrder().getItems().stream()
                         .map(item -> new OrderApprovalEventProduct(
-                                    item.getId().getValue().toString(),
+
+                                    item.getProduct().getId().getValue().toString(),
                                     item.getQuantity()
                             )
                         )

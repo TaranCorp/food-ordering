@@ -66,7 +66,7 @@ public class ApprovalOutboxHelper {
         save(
                 OrderApprovalOutboxMessage.builder()
                         .id(UUID.randomUUID())
-                        .payload(objectMapperHelper.serializePayload(persistDto))
+                        .payload(objectMapperHelper.serializePayload(persistDto.payload()))
                         .createdAt(persistDto.payload().getCreatedAt())
                         .type(SagaConstants.ORDER_SAGA_NAME)
                         .orderStatus(persistDto.orderStatus())

@@ -1,12 +1,9 @@
 package com.food.ordering.system.order.service.messaging.publisher.kafka;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.food.ordering.system.kafka.order.avro.model.RestaurantApprovalRequestAvroModel;
 import com.food.ordering.system.kafka.producer.KafkaMessageHelper;
 import com.food.ordering.system.kafka.producer.service.KafkaProducer;
 import com.food.ordering.system.order.service.domain.config.OrderServiceConfigData;
-import com.food.ordering.system.order.service.domain.exception.OrderDomainException;
 import com.food.ordering.system.order.service.domain.outbox.model.approval.OrderApprovalEventPayload;
 import com.food.ordering.system.order.service.domain.outbox.model.approval.OrderApprovalOutboxMessage;
 import com.food.ordering.system.order.service.domain.ports.output.message.publisher.restaurantapproval.RestaurantApprovalRequestMessagePublisher;
@@ -42,7 +39,7 @@ public class OrderApprovalEventKafkaPublisher implements RestaurantApprovalReque
             OrderApprovalOutboxMessage orderApprovalOutboxMessage,
             BiConsumer<OrderApprovalOutboxMessage, OutboxStatus> outboxCallback
     ) {
-        final OrderApprovalEventPayload orderApprovalEventPayload = kafkaMessageHelper.getEventPayload(orderApprovalOutboxMessage.getPayload(), OrderApprovalEventPayload.class);
+        OrderApprovalEventPayload orderApprovalEventPayload = kafkaMessageHelper.getEventPayload(orderApprovalOutboxMessage.getPayload(), OrderApprovalEventPayload.class);
         final String topicName = orderServiceConfigData.getRestaurantApprovalRequestTopicName();
         final String sagaId = orderApprovalOutboxMessage.getSagaId().toString();
         final String orderId = orderApprovalEventPayload.getOrderId();
